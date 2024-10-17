@@ -4,7 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anand Parmar - Portfolio</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        .project {
+            margin-bottom: 20px;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .project h3 {
+            margin: 0;
+            color: #007bff;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #007bff;
+            color: #fff;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill {
+            background: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -31,33 +98,168 @@
             <h3>Personal Website</h3>
             <p><strong>Description:</strong> Mera personal website jisme meri skills aur projects showcase kiye gaye hain.</p>
             <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript</p>
-            <p><strong>Link:</strong> <a href="https://github.com/anand9023-a/personal-website">View Project</a></p>
+            <p><strong>Link:</strong> <a href="https://github.com/anand9023-a/personal-website" target="_blank">View Project</a></p>
         </div>
         <div class="project">
             <h3>E-commerce Store</h3>
             <p><strong>Description:</strong> Ek full-stack e-commerce application jo products kharidne aur bechne ke liye hai.</p>
             <p><strong>Technologies Used:</strong> React, Node.js, MongoDB</p>
-            <p><strong>Link:</strong> <a href="https://github.com/anand9023-a/ecommerce-store">View Project</a></p>
+            <p><strong>Link:</strong> <a href="https://github.com/anand9023-a/ecommerce-store" target="_blank">View Project</a></p>
         </div>
+        <!-- Aap yahan aur projects add kar sakte hain -->
     </section>
 
     <section id="skills">
         <h2>Skills</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-            <li>Graphic Design (Photoshop, Illustrator)</li>
-        </ul>
+        <div class="skills">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Graphic Design</div>
+        </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
         <p>Agar aap mujhse sampark karna chahte hain, toh aap inke through mujhse sampark kar sakte hain:</p>
         <p><strong>Email:</strong> <a href="mailto:your_email@example.com">your_email@example.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourprofile">LinkedIn Profile</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn Profile</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Anand Parmar. All rights reserved.</p>
+    </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anand Parmar - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        .project {
+            margin-bottom: 20px;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .project h3 {
+            margin: 0;
+            color: #007bff;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #007bff;
+            color: #fff;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill {
+            background: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Anand Parmar</h1>
+        <p>Web Developer | Graphic Designer | Tech Enthusiast</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Mujhe graphic design, web development, aur naye technologies explore karna pasand hai. Main ek budding developer hoon jise innovative solutions create karne ka shauk hai.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Personal Website</h3>
+            <p><strong>Description:</strong> Mera personal website jisme meri skills aur projects showcase kiye gaye hain.</p>
+            <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript</p>
+            <p><strong>Link:</strong> <a href="https://github.com/anand9023-a/personal-website" target="_blank">View Project</a></p>
+        </div>
+        <div class="project">
+            <h3>E-commerce Store</h3>
+            <p><strong>Description:</strong> Ek full-stack e-commerce application jo products kharidne aur bechne ke liye hai.</p>
+            <p><strong>Technologies Used:</strong> React, Node.js, MongoDB</p>
+            <p><strong>Link:</strong> <a href="https://github.com/anand9023-a/ecommerce-store" target="_blank">View Project</a></p>
+        </div>
+        <!-- Aap yahan aur projects add kar sakte hain -->
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Graphic Design</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Agar aap mujhse sampark karna chahte hain, toh aap inke through mujhse sampark kar sakte hain:</p>
+        <p><strong>Email:</strong> <a href="mailto:your_email@example.com">your_email@example.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn Profile</a></p>
     </section>
 
     <footer>
