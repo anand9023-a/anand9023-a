@@ -12,12 +12,15 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            perspective: 1000px; /* Perspective for 3D effect */
         }
         header {
             background: #007bff;
             color: #fff;
             padding: 20px 0;
             text-align: center;
+            transform: rotateY(10deg); /* 3D rotation */
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
         }
         nav ul {
             list-style-type: none;
@@ -40,48 +43,47 @@
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transform: rotateY(-5deg); /* 3D rotation */
         }
         h2 {
             color: #333;
-        }
-        .project {
-            margin-bottom: 20px;
-            border: 1px solid #007bff;
-            border-radius: 8px;
-            padding: 10px;
-        }
-        .project h3 {
-            margin: 0;
-            color: #007bff;
         }
         footer {
             text-align: center;
             padding: 20px 0;
             background: #007bff;
             color: #fff;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            width: 100%;
         }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .personal-info, .education, .skills {
+            margin-bottom: 20px;
         }
         .skill {
             background: #007bff;
             color: #fff;
             padding: 5px 10px;
             border-radius: 5px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .contact-info {
+            margin-top: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Anand Parmar</h1>
+        <h1>PARMAR ANANDBHAI KHEMSHIBHAI</h1>
         <p>Web Developer | Graphic Designer | Tech Enthusiast</p>
         <nav>
             <ul>
                 <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills & Interests</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -92,44 +94,41 @@
         <p>Mujhe graphic design, web development, aur naye technologies explore karna pasand hai. Main ek budding developer hoon jise innovative solutions create karne ka shauk hai.</p>
     </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Personal Website</h3>
-            <p><strong>Description:</strong> Mera personal website jisme meri skills aur projects showcase kiye gaye hain.</p>
-            <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript</p>
-            <p><strong>Link:</strong> <a href="https://github.com/anand9023-a/personal-website" target="_blank">View Project</a></p>
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education">
+            <p><strong>9th Pass:</strong> 2019</p>
+            <p><strong>10th (Dropout):</strong> 2020</p>
         </div>
-        <div class="project">
-            <h3>E-commerce Store</h3>
-            <p><strong>Description:</strong> Ek full-stack e-commerce application jo products kharidne aur bechne ke liye hai.</p>
-            <p><strong>Technologies Used:</strong> React, Node.js, MongoDB</p>
-            <p><strong>Link:</strong> <a href="https://github.com/anand9023-a/ecommerce-store" target="_blank">View Project</a></p>
-        </div>
-        <!-- Aap yahan aur projects add kar sakte hain -->
     </section>
 
     <section id="skills">
-        <h2>Skills</h2>
+        <h2>Skills & Interests</h2>
         <div class="skills">
+            <p><strong>Hobbies:</strong> Travelling, Reading</p>
             <div class="skill">HTML</div>
             <div class="skill">CSS</div>
             <div class="skill">JavaScript</div>
-            <div class="skill">React</div>
-            <div class="skill">Node.js</div>
             <div class="skill">Graphic Design</div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Agar aap mujhse sampark karna chahte hain, toh aap inke through mujhse sampark kar sakte hain:</p>
-        <p><strong>Email:</strong> <a href="mailto:your_email@example.com">your_email@example.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn Profile</a></p>
+        <h2>Contact Information</h2>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:ap9023633488@gmail.com">ap9023633488@gmail.com</a></p>
+            <p><strong>Contact:</strong> 9023633488</p>
+            <p><strong>Location:</strong> At-Sapreda, Ta-Wav (B.K-385566), Banashkatha, Gujarat</p>
+            <p><strong>Date of Birth:</strong> 11/10/2004</p>
+            <p><strong>Marital Status:</strong> Unmarried</p>
+            <p><strong>Nationality:</strong> Indian</p>
+            <p><strong>Languages:</strong> Gujarati, Hindi, English</p>
+            <p><strong>Gender:</strong> Male</p>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Anand Parmar. All rights reserved.</p>
+        <p>&copy; 2024 PARMAR ANANDBHAI KHEMSHIBHAI. All rights reserved.</p>
     </footer>
 </body>
 </html>
