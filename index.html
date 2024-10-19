@@ -3,182 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anand Parmar Portfolio</title>
+    <title>Resume - Parmar Anandbhai Khemsibhai</title>
     <style>
-        /* Global styles */
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f0f4f8, #ffffff);
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
             color: #333;
         }
-
-        /* Container for the entire portfolio */
         .container {
-            max-width: 800px;
-            margin: 50px auto;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
             padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        /* Heading and photo styles */
         h1 {
             text-align: center;
-            font-size: 2.5em;
-            color: #007bff;
-            margin-bottom: 10px;
+            color: #2c3e50;
         }
-
-        .profile-pic {
-            display: block;
-            margin: 20px auto;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Section heading styles */
-        h2 {
-            font-size: 1.5em;
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-        }
-
-        /* Contact and personal information styles */
-        .contact-info, .personal-info {
+        .photo {
+            text-align: center;
             margin-bottom: 20px;
         }
-
-        .contact-info a {
-            color: #007bff;
-            text-decoration: none;
+        .photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
         }
-
-        .contact-info a:hover {
-            color: #ff5722;
-            text-decoration: underline;
+        .section {
+            margin-bottom: 20px;
         }
-
-        .info-item {
-            margin-bottom: 10px;
+        .section h2 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            color: #2c3e50;
         }
-
-        .info-item span {
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section ul li {
+            margin-bottom: 5px;
+        }
+        .contact-info, .personal-info {
             font-weight: bold;
-            color: #555;
-        }
-
-        /* Education and skills section */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .skills div {
-            background-color: #e0f7fa;
-            color: #00796b;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 20px;
-        }
-
-        /* Footer styles */
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #999;
-        }
-
-        /* Hover effects */
-        .container:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        footer:hover {
-            color: #555;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-
-            .skills {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .skills div {
-                width: 100%;
-                text-align: center;
-            }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>PARMAR ANANDBHAI KHEMSHIBHAI</h1>
-        <img src="profile.jpg" alt="Anand Parmar" class="profile-pic">
+        <h1>Parmar Anandbhai Khemsibhai</h1>
 
-        <section class="contact-info">
+        <div class="photo">
+            <img src="https://i.imgur.com/Rcdi87c.jpeg" alt="Anand Parmar Photo">
+        </div>
+
+        <div class="section">
             <h2>Contact Information</h2>
-            <div class="info-item">
-                <span>Address:</span> At-Sapreda, Ta-Wav (B.K-385566), Banashkatha, Gujarat
-            </div>
-            <div class="info-item">
-                <span>Email:</span> <a href="mailto:ap9023633488@gmail.com">ap9023633488@gmail.com</a>
-            </div>
-            <div class="info-item">
-                <span>Phone:</span> 9023633488
-            </div>
-        </section>
+            <p class="contact-info">
+                Address: At-Sapreda, Ta-Wav (B.K-385566), Banashkatha, Gujarat<br>
+                E-mail: <a href="mailto:ap9023633488@gmail.com">ap9023633488@gmail.com</a><br>
+                Contact: 9023633488
+            </p>
+        </div>
 
-        <section class="personal-info">
+        <div class="section">
             <h2>Personal Information</h2>
-            <div class="info-item">
-                <span>Date of Birth:</span> 11/10/2004
-            </div>
-            <div class="info-item">
-                <span>Marital Status:</span> Unmarried
-            </div>
-            <div class="info-item">
-                <span>Nationality:</span> Indian
-            </div>
-            <div class="info-item">
-                <span>Languages:</span> Gujarati, Hindi, English
-            </div>
-            <div class="info-item">
-                <span>Gender:</span> Male
-            </div>
-        </section>
+            <ul class="personal-info">
+                <li>Date of Birth: 11/10/2004</li>
+                <li>Marital Status: Unmarried</li>
+                <li>Nationality: Indian</li>
+                <li>Languages: Gujarati, Hindi, English</li>
+                <li>Gender: Male</li>
+            </ul>
+        </div>
 
-        <section class="education">
+        <div class="section">
             <h2>Education</h2>
-            <div class="info-item">
-                <span>9th Pass:</span> 2019
-            </div>
-            <div class="info-item">
-                <span>10th (Dropout):</span> 2020
-            </div>
-        </section>
+            <ul>
+                <li>9th Pass, [2019]</li>
+                <li>10th (Dropout), [2020]</li>
+            </ul>
+        </div>
 
-        <section class="skills">
+        <div class="section">
             <h2>Skills & Interests</h2>
-            <div>Travelling</div>
-            <div>Reading</div>
-        </section>
-
-        <footer>
-            &copy; 2024 Anand Parmar. All rights reserved.
-        </footer>
+            <ul>
+                <li>Hobby: Travelling, Reading</li>
+            </ul>
+        </div>
     </div>
+
 </body>
 </html>
