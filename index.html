@@ -3,124 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Workout Plan</title>
+    <title>Workout Schedule</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
+            background-color: #f0f0f0;
             color: #333;
-            font-size: 2.2em;
-            text-transform: uppercase;
-            margin-bottom: 30px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h2 {
             color: #007BFF;
-            font-size: 1.6em;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #007BFF;
-            padding-bottom: 5px;
         }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        .exercise-name {
+            color: #28A745;
+        }
+        .reps {
+            color: #DC3545;
         }
         .day {
-            margin-bottom: 30px;
+            font-size: 1.2em;
+            margin: 10px 0;
         }
-        .exercise {
-            margin-left: 20px;
-            font-size: 1.1em;
-            color: #555;
-        }
-        .exercise span {
-            font-weight: bold;
-            color: #007BFF;
-        }
-        .forearm-note {
-            font-style: italic;
-            color: #555;
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Weekly Workout Plan</h1>
+    <h2>Workout Schedule</h2>
 
-        <div class="day">
-            <h2>Day 1: Upper Body (Chest, Shoulders, Arms)</h2>
-            <div class="exercise"><span>1. Push-ups</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>2. Dumbbell Shoulder Press</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>3. Lateral Raise</span> - 3 sets of 15-20 reps</div>
-            <div class="exercise"><span>4. Bicep Curl + Triceps Kickback Superset</span> - 3 sets of 12-15 reps each</div>
-            <div class="exercise"><span>5. Pull-Up</span> - 3 sets of max reps</div>
-            <div class="exercise"><span>6. Forearm workout</span> <span class="forearm-note">(As shown in video)</span></div>
-        </div>
+    <div class="day">Day 1: Upper Body (Chest, Shoulders, Arms)</div>
+    <ul>
+        <li><span class="exercise-name">Push-ups</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Dumbbell Shoulder Press</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Lateral Raise</span> - <span class="reps">3 sets of 15-20 reps</span></li>
+        <li><span class="exercise-name">Bicep Curl + Triceps Kickback Superset</span> - <span class="reps">3 sets of 12-15 reps each</span></li>
+        <li><span class="exercise-name">Pull-Up</span> - <span class="reps">3 sets of max reps</span></li>
+        <li><span class="exercise-name">Forearm Workout</span> - <span class="reps">Video me he vese</span></li>
+    </ul>
 
-        <div class="day">
-            <h2>Day 2: Lower Body (Legs + Core)</h2>
-            <div class="exercise"><span>1. Squats</span> - 3 sets of 15-20 reps</div>
-            <div class="exercise"><span>2. Dumbbell Romanian Deadlift</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>3. Dumbbell Lunges</span> - 3 sets of 10-12 reps per leg</div>
-            <div class="exercise"><span>4. Goblet Squat</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>5. Single Leg Calf Raise</span> - 3 sets of 15-20 reps per leg</div>
-            <div class="exercise"><span>6. Plank</span> - 3 sets of 30-45 seconds hold</div>
-            <div class="exercise"><span>7. Abs workout</span> - 3 sets of 12-15 reps each</div>
-        </div>
+    <div class="day">Day 2: Lower Body (Legs + Core)</div>
+    <ul>
+        <li><span class="exercise-name">Squats</span> - <span class="reps">3 sets of 15-20 reps</span></li>
+        <li><span class="exercise-name">Dumbbell Romanian Deadlift</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Dumbbell Lunges</span> - <span class="reps">3 sets of 10-12 reps per leg</span></li>
+        <li><span class="exercise-name">Goblet Squat</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Single Leg Calf Raise</span> - <span class="reps">3 sets of 15-20 reps per leg</span></li>
+        <li><span class="exercise-name">Plank</span> - <span class="reps">3 sets of 30-45 seconds hold</span></li>
+        <li><span class="exercise-name">Abs Workout</span> - <span class="reps">3 sets of 12-15 reps each</span></li>
+    </ul>
 
-        <div class="day">
-            <h2>Day 3: Back Focused Workout</h2>
-            <div class="exercise"><span>1. Dumbbell Deadlift</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>2. Dumbbell Bent Over Row</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>3. Pull-up</span> - 3 sets of max reps</div>
-            <div class="exercise"><span>4. Push-up + Dumbbell Row Combo</span> - 3 sets of 12 reps</div>
-            <div class="exercise"><span>5. Plank to Push-Up</span> - 3 sets of 10-12 reps</div>
-            <div class="exercise"><span>6. Forearm workout</span> <span class="forearm-note">(As shown in video)</span></div>
-        </div>
+    <div class="day">Day 3: Back Focused Workout</div>
+    <ul>
+        <li><span class="exercise-name">Dumbbell Deadlift</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Dumbbell Bent Over Row</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Pull-up</span> - <span class="reps">3 sets of max reps</span></li>
+        <li><span class="exercise-name">Push-up + Dumbbell Row Combo</span> - <span class="reps">3 sets of 12 reps</span></li>
+        <li><span class="exercise-name">Plank to Push-Up</span> - <span class="reps">3 sets of 10-12 reps</span></li>
+        <li><span class="exercise-name">Forearm Workout</span> - <span class="reps">Video me he vese</span></li>
+    </ul>
 
-        <div class="day">
-            <h2>Day 4: Shoulders and Arms</h2>
-            <div class="exercise"><span>1. Dumbbell Shoulder Press</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>2. Lateral Raise</span> - 3 sets of 15-20 reps</div>
-            <div class="exercise"><span>3. Bicep Curl + Triceps Kickback Superset</span> - 3 sets of 12-15 reps each</div>
-            <div class="exercise"><span>4. Hammer Curl</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>5. Dumbbell Farmer’s Walk</span> - 1-minute walk (3 times)</div>
-            <div class="exercise"><span>6. Abs workout</span> - 3 sets of 12-15 reps each</div>
-        </div>
+    <div class="day">Day 4: Shoulders and Arms</div>
+    <ul>
+        <li><span class="exercise-name">Dumbbell Shoulder Press</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Lateral Raise</span> - <span class="reps">3 sets of 15-20 reps</span></li>
+        <li><span class="exercise-name">Bicep Curl + Triceps Kickback Superset</span> - <span class="reps">3 sets of 12-15 reps each</span></li>
+        <li><span class="exercise-name">Hammer Curl</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Dumbbell Farmer’s Walk</span> - <span class="reps">1-minute walk (3 times)</span></li>
+        <li><span class="exercise-name">Abs Workout</span> - <span class="reps">3 sets of 12-15 reps each</span></li>
+    </ul>
 
-        <div class="day">
-            <h2>Day 5: Lower Body and Core</h2>
-            <div class="exercise"><span>1. Squats</span> - 3 sets of 15-20 reps</div>
-            <div class="exercise"><span>2. Romanian Deadlift</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>3. Dumbbell Lunges</span> - 3 sets of 10-12 reps per leg</div>
-            <div class="exercise"><span>4. Goblet Squat</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>5. Single Leg Calf Raise</span> - 3 sets of 15-20 reps per leg</div>
-            <div class="exercise"><span>6. Plank</span> - 3 sets of 30-45 seconds hold</div>
-            <div class="exercise"><span>7. Forearm workout</span> <span class="forearm-note">(As shown in video)</span></div>
-        </div>
+    <div class="day">Day 5: Lower Body and Core</div>
+    <ul>
+        <li><span class="exercise-name">Squats</span> - <span class="reps">3 sets of 15-20 reps</span></li>
+        <li><span class="exercise-name">Romanian Deadlift</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Dumbbell Lunges</span> - <span class="reps">3 sets of 10-12 reps per leg</span></li>
+        <li><span class="exercise-name">Goblet Squat</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Single Leg Calf Raise</span> - <span class="reps">3 sets of 15-20 reps per leg</span></li>
+        <li><span class="exercise-name">Plank</span> - <span class="reps">3 sets of 30-45 seconds hold</span></li>
+        <li><span class="exercise-name">Forearm Workout</span> - <span class="reps">Video me he vese</span></li>
+    </ul>
 
-        <div class="day">
-            <h2>Day 6: Full Body Workout</h2>
-            <div class="exercise"><span>1. Dumbbell Deadlift</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>2. Dumbbell Bent Over Row</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>3. Push-up + Dumbbell Row Combo</span> - 3 sets of 12 reps</div>
-            <div class="exercise"><span>4. Hammer Curl</span> - 3 sets of 12-15 reps</div>
-            <div class="exercise"><span>5. Dumbbell Farmer’s Walk</span> - 1-minute walk (3 times)</div>
-            <div class="exercise"><span>6. Plank to Push-Up</span> - 3 sets of 10-12 reps</div>
-            <div class="exercise"><span>7. Abs workout</span> - 3 sets of 12-15 reps each</div>
-        </div>
+    <div class="day">Day 6: Full Body Workout</div>
+    <ul>
+        <li><span class="exercise-name">Dumbbell Deadlift</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Dumbbell Bent Over Row</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Push-up + Dumbbell Row Combo</span> - <span class="reps">3 sets of 12 reps</span></li>
+        <li><span class="exercise-name">Hammer Curl</span> - <span class="reps">3 sets of 12-15 reps</span></li>
+        <li><span class="exercise-name">Dumbbell Farmer’s Walk</span> - <span class="reps">1-minute walk (3 times)</span></li>
+        <li><span class="exercise-name">Plank to Push-Up</span> - <span class="reps">3 sets of 10-12 reps</span></li>
+        <li><span class="exercise-name">Abs Workout</span> - <span class="reps">3 sets of 12-15 reps each</span></li>
+    </ul>
 
-        <div class="day">
-            <h2>Day 7: Rest Day (Sunday)</h2>
-            <p>Take a rest day to allow your body to recover.</p>
-        </div>
-    </div>
+    <div class="day">Day 7: Rest Day (Sunday)</div>
 </body>
 </html>
