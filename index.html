@@ -3,192 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Body Workout</title>
+    <title>Workout Plan</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
+            color: white;
+            background-image: url('https://via.placeholder.com/1920x1080'); /* Default Background */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
             text-align: center;
-        }
-        h1 {
-            color: #fff;
-        }
-        .workout {
-            margin: 0 auto;
-            max-width: 600px;
-            border: 2px solid #fff;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
             padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            width: 80%;
+            margin: 40px auto;
         }
-        .day {
-            background-color: #3c3cbd;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        table {
-            width: 100%;
+
+        h1, h2 {
             margin-bottom: 20px;
         }
-        th, td {
-            padding: 10px;
-            border-bottom: 1px solid #fff;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
-        th {
-            background-color: #444;
+
+        li {
+            margin: 10px 0;
         }
-        .note {
-            font-size: 14px;
-            color: #ccc;
-            margin-top: 20px;
+
+        @media (max-width: 768px) {
+            body {
+                background-size: cover;
+            }
+            .container {
+                width: 95%;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Workout Plan</h1>
+        <h2>Day 1: Upper Body (Chest, Shoulders, Arms)</h2>
+        <ul>
+            <li>Push-ups - 3 sets of 12-15 reps</li>
+            <li>Dumbbell Shoulder Press - 3 sets of 12-15 reps</li>
+            <li>Lateral Raise - 3 sets of 15-20 reps</li>
+            <li>Bicep Curl + Triceps Kickback Superset - 3 sets of 12-15 reps each</li>
+            <li>Pull-Up - 3 sets of max reps</li>
+            <li>Forearm Workout (As in video)</li>
+        </ul>
 
-    <div class="workout">
-        <h1>Full Body Workout</h1>
-        <p>45 minutes, 3x a week</p>
+        <h2>Day 2: Lower Body (Legs + Core)</h2>
+        <ul>
+            <li>Squats - 3 sets of 15-20 reps</li>
+            <li>Dumbbell Romanian Deadlift - 3 sets of 12-15 reps</li>
+            <li>Dumbbell Lunges - 3 sets of 10-12 reps per leg</li>
+            <li>Goblet Squat - 3 sets of 12-15 reps</li>
+            <li>Single Leg Calf Raise - 3 sets of 15-20 reps per leg</li>
+            <li>Plank - 3 sets of 30-45 seconds hold</li>
+            <li>Abs Workout</li>
+        </ul>
 
-        <!-- Monday -->
-        <div class="day">
-            <h2>Monday</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Exercise</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Chest Press</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Overhead Shoulder Press</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Dumbbell Lunges</td>
-                        <td>3</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>Dumbbell Rows</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Cable Pull-throughs</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Cable Crunch</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <h2>Day 3: Back Focused Workout</h2>
+        <ul>
+            <li>Dumbbell Deadlift - 3 sets of 12-15 reps</li>
+            <li>Dumbbell Bent Over Row - 3 sets of 12-15 reps</li>
+            <li>Pull-up - 3 sets of max reps</li>
+            <li>Push-up + Dumbbell Row Combo - 3 sets of 12 reps</li>
+            <li>Plank to Push-Up - 3 sets of 10-12 reps</li>
+            <li>Forearm Workout (As in video)</li>
+        </ul>
 
-        <!-- Wednesday -->
-        <div class="day">
-            <h2>Wednesday</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Exercise</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Squats</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Chin-ups or Pull-ups</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Push-ups</td>
-                        <td>3</td>
-                        <td>15</td>
-                    </tr>
-                    <tr>
-                        <td>Leg Curls</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Leg Raise</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Planks (any type)</td>
-                        <td>3</td>
-                        <td>1 minute</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <h2>Day 4: Shoulders and Arms</h2>
+        <ul>
+            <li>Dumbbell Shoulder Press - 3 sets of 12-15 reps</li>
+            <li>Lateral Raise - 3 sets of 15-20 reps</li>
+            <li>Bicep Curl + Triceps Kickback Superset - 3 sets of 12-15 reps each</li>
+            <li>Hammer Curl - 3 sets of 12-15 reps</li>
+            <li>Dumbbell Farmer’s Walk - 1-minute walk (3 times)</li>
+            <li>Abs Workout</li>
+        </ul>
 
-        <!-- Friday -->
-        <div class="day">
-            <h2>Friday</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Exercise</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Dumbbell Bench Press</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Lat Pull-downs</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Leg Press</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Calf Raises on the Leg Press</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Bicep Curl</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>Skull Crushers</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <h2>Day 5: Lower Body and Core</h2>
+        <ul>
+            <li>Squats - 3 sets of 15-20 reps</li>
+            <li>Romanian Deadlift - 3 sets of 12-15 reps</li>
+            <li>Dumbbell Lunges - 3 sets of 10-12 reps per leg</li>
+            <li>Goblet Squat - 3 sets of 12-15 reps</li>
+            <li>Single Leg Calf Raise - 3 sets of 15-20 reps per leg</li>
+            <li>Plank - 3 sets of 30-45 seconds hold</li>
+            <li>Forearm Workout (As in video)</li>
+        </ul>
 
-        <p class="note">For complete workout instructions and a downloadable version, visit Shrinking Guy Fitness</p>
+        <h2>Day 6: Full Body Workout</h2>
+        <ul>
+            <li>Dumbbell Deadlift - 3 sets of 12-15 reps</li>
+            <li>Dumbbell Bent Over Row - 3 sets of 12-15 reps</li>
+            <li>Push-up + Dumbbell Row Combo - 3 sets of 12 reps</li>
+            <li>Hammer Curl - 3 sets of 12-15 reps</li>
+            <li>Dumbbell Farmer’s Walk - 1-minute walk (3 times)</li>
+            <li>Plank to Push-Up - 3 sets of 10-12 reps</li>
+            <li>Abs Workout</li>
+        </ul>
+
+        <h2>Day 7: Rest Day (Sunday)</h2>
     </div>
-
 </body>
 </html>
