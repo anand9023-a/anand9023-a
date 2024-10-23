@@ -10,111 +10,85 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #1a1a1a;
-            margin: 0;
+            background-color: #000;
             font-family: 'Arial', sans-serif;
+            margin: 0;
         }
 
         .clock {
             display: flex;
+            color: #fff;
         }
 
-        .flip-clock {
-            position: relative;
+        .flip-card {
+            background: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            display: inline-block;
             width: 100px;
-            height: 140px;
-            background: #333;
+            height: 130px;
             margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-            perspective: 1000px;
+            position: relative;
         }
 
-        .flip-clock .card {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            color: white;
-            font-size: 60px;
-            line-height: 140px;
-            text-align: center;
-            background: #000;
-            border-radius: 10px;
-            transform-style: preserve-3d;
-            transform-origin: bottom;
-            transition: transform 0.6s;
-        }
-
-        .flip-clock .card div {
+        .flip-card:before {
+            content: '';
             position: absolute;
             width: 100%;
             height: 50%;
-            background: #333;
-            backface-visibility: hidden;
-            overflow: hidden;
-        }
-
-        .flip-clock .card .front {
-            transform: rotateX(0deg);
-        }
-
-        .flip-clock .card .back {
-            transform: rotateX(180deg);
+            background: #222;
             top: 50%;
+            z-index: 2;
         }
 
-        .flip-clock.flip .card {
-            transform: rotateX(-180deg);
+        .flip-card .card-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-size: 80px;
+            color: #ccc;
         }
 
         .colon {
-            font-size: 100px;
-            color: white;
-            margin: 0 10px;
+            font-size: 80px;
+            margin-top: 10px;
         }
+
     </style>
 </head>
 <body>
     <div class="clock">
-        <div class="flip-clock" id="hours-tens"></div>
-        <div class="flip-clock" id="hours-ones"></div>
+        <div class="flip-card">
+            <div class="card-content" id="hours-tens">0</div>
+        </div>
+        <div class="flip-card">
+            <div class="card-content" id="hours-ones">9</div>
+        </div>
         <div class="colon">:</div>
-        <div class="flip-clock" id="minutes-tens"></div>
-        <div class="flip-clock" id="minutes-ones"></div>
-        <div class="colon">:</div>
-        <div class="flip-clock" id="seconds-tens"></div>
-        <div class="flip-clock" id="seconds-ones"></div>
+        <div class="flip-card">
+            <div class="card-content" id="minutes-tens">0</div>
+        </div>
+        <div class="flip-card">
+            <div class="card-content" id="minutes-ones">0</div>
+        </div>
     </div>
 
     <script>
-        function updateFlipClock() {
+        function updateClock() {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
 
-            flipClock('hours-tens', hours[0]);
-            flipClock('hours-ones', hours[1]);
-            flipClock('minutes-tens', minutes[0]);
-            flipClock('minutes-ones', minutes[1]);
-            flipClock('seconds-tens', seconds[0]);
-            flipClock('seconds-ones', seconds[1]);
+            document.getElementById('hours-tens').textContent = hours[0];
+            document.getElementById('hours-ones').textContent = hours[1];
+            document.getElementById('minutes-tens').textContent = minutes[0];
+            document.getElementById('minutes-ones').textContent = minutes[1];
         }
 
-        function flipClock(id, value) {
-            const element = document.getElementById(id);
-            element.innerHTML = `
-                <div class="card">
-                    <div class="front">${value}</div>
-                    <div class="back">${value}</div>
-                </div>
-            `;
-            element.classList.remove('flip');
-            setTimeout(() => element.classList.add('flip'), 100);
-        }
-
-        setInterval(updateFlipClock, 1000);
-        updateFlipClock();
+        setInterval(updateClock, 1000);
+        updateClock();
     </script>
 </body>
 </html>
