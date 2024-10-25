@@ -3,39 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated Bouncing Ball</title>
+  <title>Flip Clock</title>
   <style>
     body {
-      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f0f0f0;
+      margin: 0;
+      background-color: #222;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
     }
 
-    .ball {
-      width: 100px;
-      height: 100px;
-      background-color: #3498db;
-      border-radius: 50%;
+    .clock {
+      display: flex;
+      font-size: 40px;
+    }
+
+    .flip-unit {
+      margin: 0 10px;
       position: relative;
-      animation: bounce 2s ease-in-out infinite;
+      width: 60px;
+      height: 80px;
+      perspective: 1000px;
     }
 
-    @keyframes bounce {
-      0%, 100% {
-        top: 0;
-        animation-timing-function: ease-in;
-      }
-      50% {
-        top: 300px;
-        animation-timing-function: ease-out;
-      }
+    .flip-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: 0.6s;
+      transform-style: preserve-3d;
+      transform-origin: bottom;
+    }
+
+    .top, .bottom {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      line-height: 40px;
+      text-align: center;
+      background-color: #333;
+      border-radius: 5px;
+    }
+
+    .top {
+      top: 0;
+      border-bottom: 1px solid #000;
+    }
+
+    .bottom {
+      bottom: 0;
+      border-top: 1px solid #000;
+    }
+
+    .flip-card.flip .top {
+      transform: rotateX(180deg);
+    }
+
+    .flip-card.flip .bottom {
+      transform: rotateX(-180deg);
+    }
+
+    .flip-card div {
+      backface-visibility: hidden;
     }
   </style>
 </head>
 <body>
-  <div class="ball"></div>
+  <div class="clock">
+    <div class="flip-unit" id="hourTens"></div>
+    <div class="flip-unit" id="hourOnes"></div>
+    <div class="flip-unit" id="minuteTens"></div>
+    <div class="flip-unit" id="minuteOnes"></div>
+  </div>
+
+  <script>
+    function createFlipCard(unit, value) {
+      unit.innerHTML = `
+        <div class="flip-card">
+          <div class="top">${value}</div>
+          <div class="bottom">${value}</div>
+        </div>`;
+    }
+
+    function updateFlipCard(unit, value) {
+      const flipCard = unit.querySelector('.flip-card');
+      const topHalf = flipCard.querySelector('.top');
+      const bottomHalf = flipCard.querySelector('.bottom');
+
+      if (topHalf.innerText !== value) {
+        flipCard.classList.add('flip');
+        setTimeout(() => {
+          topHalf.innerText = value;
+          bottomHalf.innerText = value;
+          flipCard.classList.remove('flip');
+        }, 600);
+      }
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+
+      updateFlipCard(document.getElementById('hourTens'), hours[0]);
+      updateFlipCard(document.getElementById('hourOnes'), hours[1]);
+      updateFlipCard(document.getElementById('minuteTens'), minutes[0]);
+      updateFlipCard(document.getElementById('minuteOnes'), minutes[1]);
+    }
+
+    function startClock() {
+      const hourTens = document.getElementById('hourTens');
+      const hourOnes = document.getElementById('hourOnes');
+      const minuteTens = document.getElementById('minuteTens');
+      const minuteOnes = document.getElementById('minuteOnes');
+
+      createFlipCard(hourTens, '0');
+      createFlipCard(hourOnes, '0');
+      createFlipCard(minuteTens, '0');
+      createFlipCard(minuteOnes, '0');
+
+      setInterval(updateClock, 1000);
+    }
+
+    startClock();
+  </script>
 </body>
 </html>
