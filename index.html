@@ -1,53 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Free Photos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .photo-link {
-            margin: 10px 0;
-        }
-        .download-btn {
-            display: none;
-            margin-top: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Bouncing Ball</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .ball {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      border-radius: 50%;
+      position: relative;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        top: 0;
+        animation-timing-function: ease-in;
+      }
+      50% {
+        top: 300px;
+        animation-timing-function: ease-out;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<h1>Download Paid Photos for Free</h1>
-
-<div class="photo-link">
-    <a href="https://example.com/photo1" target="_blank">Photo 1 (Paid Link)</a>
-    <button class="download-btn" onclick="downloadPhoto('photo1.jpg')">Download for Free</button>
-</div>
-
-<div class="photo-link">
-    <a href="https://example.com/photo2" target="_blank">Photo 2 (Paid Link)</a>
-    <button class="download-btn" onclick="downloadPhoto('photo2.jpg')">Download for Free</button>
-</div>
-
-<script>
-    const photoLinks = document.querySelectorAll('.photo-link a');
-
-    photoLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            const button = this.nextElementSibling;
-            button.style.display = 'block'; // Show the download button
-        });
-    });
-
-    function downloadPhoto(photo) {
-        // Simulate downloading a photo
-        alert(`Downloading ${photo}...`);
-        // Actual download logic can be added here
-    }
-</script>
-
+  <div class="ball"></div>
 </body>
 </html>
