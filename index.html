@@ -1,136 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flip Clock</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #222;
-      color: #fff;
-      font-family: 'Arial', sans-serif;
-    }
-
-    .clock {
-      display: flex;
-      font-size: 40px;
-    }
-
-    .flip-unit {
-      margin: 0 10px;
-      position: relative;
-      width: 60px;
-      height: 80px;
-      perspective: 1000px;
-    }
-
-    .flip-card {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      transition: 0.6s;
-      transform-style: preserve-3d;
-      transform-origin: bottom;
-    }
-
-    .top, .bottom {
-      position: absolute;
-      width: 100%;
-      height: 50%;
-      line-height: 40px;
-      text-align: center;
-      background-color: #333;
-      border-radius: 5px;
-    }
-
-    .top {
-      top: 0;
-      border-bottom: 1px solid #000;
-    }
-
-    .bottom {
-      bottom: 0;
-      border-top: 1px solid #000;
-    }
-
-    .flip-card.flip .top {
-      transform: rotateX(180deg);
-    }
-
-    .flip-card.flip .bottom {
-      transform: rotateX(-180deg);
-    }
-
-    .flip-card div {
-      backface-visibility: hidden;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Routine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
-  <div class="clock">
-    <div class="flip-unit" id="hourTens"></div>
-    <div class="flip-unit" id="hourOnes"></div>
-    <div class="flip-unit" id="minuteTens"></div>
-    <div class="flip-unit" id="minuteOnes"></div>
-  </div>
 
-  <script>
-    function createFlipCard(unit, value) {
-      unit.innerHTML = `
-        <div class="flip-card">
-          <div class="top">${value}</div>
-          <div class="bottom">${value}</div>
-        </div>`;
-    }
+<h1>6-Day Workout Routine</h1>
 
-    function updateFlipCard(unit, value) {
-      const flipCard = unit.querySelector('.flip-card');
-      const topHalf = flipCard.querySelector('.top');
-      const bottomHalf = flipCard.querySelector('.bottom');
+<h2>Day 1: Chest & Shoulders</h2>
+<ul>
+    <li>Push-ups: 3 sets of 10-15 reps</li>
+    <li>Dumbbell Chest Press: 3 sets of 10-15 reps</li>
+    <li>Dumbbell Shoulder Press: 3 sets of 10-15 reps</li>
+    <li>Lateral Raise: 3 sets of 10-15 reps</li>
+</ul>
 
-      if (topHalf.innerText !== value) {
-        flipCard.classList.add('flip');
-        setTimeout(() => {
-          topHalf.innerText = value;
-          bottomHalf.innerText = value;
-          flipCard.classList.remove('flip');
-        }, 600);
-      }
-    }
+<h2>Day 2: Back & Biceps</h2>
+<ul>
+    <li>Pull-ups: 3 sets of 5-10 reps</li>
+    <li>Dumbbell Bent Over Row: 3 sets of 10-15 reps</li>
+    <li>Dumbbell Deadlift: 3 sets of 10-15 reps</li>
+    <li>Dumbbell Bicep Curl: 3 sets of 10-15 reps</li>
+</ul>
 
-    function updateClock() {
-      const now = new Date();
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
+<h2>Day 3: Legs & Calves</h2>
+<ul>
+    <li>Squats: 3 sets of 10-15 reps</li>
+    <li>Dumbbell Lunges: 3 sets of 10-15 reps (each leg)</li>
+    <li>Romanian Deadlift: 3 sets of 10-15 reps</li>
+    <li>Standing Calf Raises: 3 sets of 15-20 reps</li>
+</ul>
 
-      updateFlipCard(document.getElementById('hourTens'), hours[0]);
-      updateFlipCard(document.getElementById('hourOnes'), hours[1]);
-      updateFlipCard(document.getElementById('minuteTens'), minutes[0]);
-      updateFlipCard(document.getElementById('minuteOnes'), minutes[1]);
-    }
+<h2>Day 4: Arms & Forearms</h2>
+<ul>
+    <li>Hammer Curl: 3 sets of 10-15 reps</li>
+    <li>Tricep Kickback: 3 sets of 10-15 reps</li>
+    <li>Dumbbell Wrist Curls: 3 sets of 15-20 reps</li>
+    <li>Reverse Dumbbell Wrist Curls: 3 sets of 15-20 reps</li>
+</ul>
 
-    function startClock() {
-      const hourTens = document.getElementById('hourTens');
-      const hourOnes = document.getElementById('hourOnes');
-      const minuteTens = document.getElementById('minuteTens');
-      const minuteOnes = document.getElementById('minuteOnes');
+<h2>Day 5: Core & Obliques</h2>
+<ul>
+    <li>Plank: 3 sets of 30-60 seconds</li>
+    <li>Russian Twists: 3 sets of 15-20 reps (each side)</li>
+    <li>Side Plank: 3 sets of 30 seconds (each side)</li>
+    <li>Bicycle Crunches: 3 sets of 15-20 reps</li>
+</ul>
 
-      createFlipCard(hourTens, '0');
-      createFlipCard(hourOnes, '0');
-      createFlipCard(minuteTens, '0');
-      createFlipCard(minuteOnes, '0');
+<h2>Day 6: Full Body</h2>
+<ul>
+    <li>Push-ups: 3 sets of 10-15 reps</li>
+    <li>Pull-ups: 3 sets of 5-10 reps</li>
+    <li>Squats: 3 sets of 10-15 reps</li>
+    <li>Standing Calf Raises: 3 sets of 15-20 reps</li>
+</ul>
 
-      setInterval(updateClock, 1000);
-    }
+<h2>Day 7: Rest Day</h2>
+<ul>
+    <li>Rest and Recovery</li>
+</ul>
 
-    startClock();
-  </script>
 </body>
 </html>
