@@ -1,1 +1,77 @@
-<img src="image.jpg" alt="Description of the image" width="500" height="300">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball Game</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #111; }
+        #gameArea {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 5px solid cyan;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        #ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="gameArea">
+    <div id="ball"></div>
+</div>
+
+<audio id="boundarySound" src="boundary-sound.mp3"></audio>
+<audio id="escapeSound" src="escape-sound.mp3"></audio>
+
+<script>
+    const ball = document.getElementById('ball');
+    const gameArea = document.getElementById('gameArea');
+    const boundarySound = document.getElementById('boundarySound');
+    const escapeSound = document.getElementById('escapeSound');
+
+    let posX = 140, posY = 140;  // Initial ball position
+    let velocityX = 2, velocityY = 3;  // Ball speed
+    const radius = gameArea.offsetWidth / 2;  // Radius of circular boundary
+    const ballRadius = ball.offsetWidth / 2;
+
+    function moveBall() {
+        posX += velocityX;
+        posY += velocityY;
+
+        const distanceFromCenter = Math.sqrt(Math.pow(posX - radius, 2) + Math.pow(posY - radius, 2));
+
+        // Check if the ball hits the boundary
+        if (distanceFromCenter + ballRadius >= radius) {
+            boundarySound.play();  // Play boundary sound
+            velocityX = -velocityX;
+            velocityY = -velocityY;
+        }
+
+        // Check if ball tries to escape (distance greater than boundary)
+        if (distanceFromCenter > radius) {
+            escapeSound.play();  // Play escape sound
+            posX = radius;
+            posY = radius;
+        }
+
+        ball.style.left = posX + 'px';
+        ball.style.top = posY + 'px';
+
+        requestAnimationFrame(moveBall);
+    }
+
+    moveBall();
+</script>
+
+</body>
+</html>
