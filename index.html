@@ -18,12 +18,10 @@
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 5px solid transparent;
-    background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
+    border: 10px solid;
+    border-image: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red) 1;
+    background-color: #fff;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   #ball {
     position: absolute;
@@ -48,7 +46,7 @@
   <div id="ball"></div>
 </div>
 
-<audio id="bounceSound" src="bounce.mp3"></audio> <!-- Make sure "bounce.mp3" is in the same folder -->
+<audio id="bounceSound" src="https://www.soundjay.com/button/sounds/button-4.mp3"></audio> <!-- Test sound URL -->
 
 <script>
   const ball = document.getElementById('ball');
@@ -59,7 +57,7 @@
   let y = 140;
   let dx = 2; // Horizontal velocity
   let dy = 3; // Vertical velocity
-  let ballSize = 20;
+  const ballSize = 20;
   const radius = 145; // Radius for boundary detection
   const centerX = container.clientWidth / 2;
   const centerY = container.clientHeight / 2;
@@ -80,40 +78,32 @@
     x += dx;
     y += dy;
 
-    // Distance from center
     const distanceFromCenter = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
 
     // Check collision with boundary
     if (distanceFromCenter + ballSize / 2 >= radius) {
       playSound();
 
-      // Angle calculation for realistic bounce
       const angle = Math.atan2(y - centerY, x - centerX);
       dx = -Math.cos(angle) * Math.abs(dx);
       dy = -Math.sin(angle) * Math.abs(dy);
 
-      // Increase ball size and create trail
-      increaseSize();
       createTrail(x, y);
     }
 
-    // Update ball position
     ball.style.left = `${x}px`;
     ball.style.top = `${y}px`;
-    ball.style.width = `${ballSize}px`;
-    ball.style.height = `${ballSize}px`;
   }
 
   function playSound() {
     sound.currentTime = 0;
-    sound.play();
+    sound.play().catch(error => console.log("Audio play error: ", error));
   }
 
-  function increaseSize() {
-    ballSize += 1;
-  }
+  document.body.addEventListener('click', () => {
+    setInterval(updateBallPosition, 20);
+  });
 
-  setInterval(updateBallPosition, 20);
 </script>
 
 </body>
