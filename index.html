@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Realistic Bouncing Ball</title>
+<title>Satisfying Bouncing Ball</title>
 <style>
   body {
     display: flex;
@@ -11,23 +11,34 @@
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #000;
+    background-color: #333;
   }
   #container {
     position: relative;
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 5px solid red;
+    border: 5px solid transparent;
+    background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
     overflow: hidden;
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   #ball {
     position: absolute;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
+    background: conic-gradient(from 0deg, violet, indigo, blue, green, yellow, orange, red, violet);
+  }
+  .trail {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    opacity: 0.5;
+    background: conic-gradient(from 0deg, violet, indigo, blue, green, yellow, orange, red, violet);
   }
 </style>
 </head>
@@ -37,7 +48,7 @@
   <div id="ball"></div>
 </div>
 
-<audio id="bounceSound" src="bounce-sound.mp3"></audio> <!-- Replace with actual sound file -->
+<audio id="bounceSound" src="bounce.mp3"></audio> <!-- Make sure "bounce.mp3" is in the same folder -->
 
 <script>
   const ball = document.getElementById('ball');
@@ -46,35 +57,47 @@
   
   let x = 140; // Initial position of the ball
   let y = 140;
-  let dx = 2; // Initial horizontal velocity
-  let dy = 3; // Initial vertical velocity
+  let dx = 2; // Horizontal velocity
+  let dy = 3; // Vertical velocity
   let ballSize = 20;
-  const radius = 145; // Radius of the inner boundary (considering border)
+  const radius = 145; // Radius for boundary detection
   const centerX = container.clientWidth / 2;
   const centerY = container.clientHeight / 2;
+
+  function createTrail(x, y) {
+    const trail = document.createElement('div');
+    trail.classList.add('trail');
+    trail.style.left = `${x}px`;
+    trail.style.top = `${y}px`;
+    container.appendChild(trail);
+
+    setTimeout(() => {
+      trail.remove();
+    }, 500); // Trail duration
+  }
 
   function updateBallPosition() {
     x += dx;
     y += dy;
 
-    // Calculate distance from the center of the container to the ball's center
+    // Distance from center
     const distanceFromCenter = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
 
-    // Check if the ball hits the circular boundary
+    // Check collision with boundary
     if (distanceFromCenter + ballSize / 2 >= radius) {
-      // Play bounce sound
       playSound();
 
-      // Calculate the angle of reflection
+      // Angle calculation for realistic bounce
       const angle = Math.atan2(y - centerY, x - centerX);
-      dx = -Math.cos(angle) * Math.abs(dx); // Reflecting horizontally
-      dy = -Math.sin(angle) * Math.abs(dy); // Reflecting vertically
+      dx = -Math.cos(angle) * Math.abs(dx);
+      dy = -Math.sin(angle) * Math.abs(dy);
 
-      // Increase ball size for each bounce
+      // Increase ball size and create trail
       increaseSize();
+      createTrail(x, y);
     }
 
-    // Update ball's position
+    // Update ball position
     ball.style.left = `${x}px`;
     ball.style.top = `${y}px`;
     ball.style.width = `${ballSize}px`;
@@ -87,10 +110,9 @@
   }
 
   function increaseSize() {
-    ballSize += 1; // Increase size by 1px on each bounce
+    ballSize += 1;
   }
 
-  // Run the update function every 20 milliseconds for smooth animation
   setInterval(updateBallPosition, 20);
 </script>
 
