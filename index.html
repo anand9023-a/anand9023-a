@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bouncing Ball in Circle</title>
+<title>Realistic Bouncing Ball</title>
 <style>
   body {
     display: flex;
@@ -44,30 +44,37 @@
   const container = document.getElementById('container');
   const sound = document.getElementById('bounceSound');
   
-  let x = 140; // Starting position at the center
+  let x = 140; // Initial position of the ball
   let y = 140;
-  let dx = 2;
-  let dy = 3;
+  let dx = 2; // Initial horizontal velocity
+  let dy = 3; // Initial vertical velocity
   let ballSize = 20;
-  const radius = 150; // Radius of the container circle
-  
+  const radius = 145; // Radius of the inner boundary (considering border)
+  const centerX = container.clientWidth / 2;
+  const centerY = container.clientHeight / 2;
+
   function updateBallPosition() {
     x += dx;
     y += dy;
 
-    // Calculate the distance from the center to the ball
-    const distanceFromCenter = Math.sqrt(Math.pow(x - radius, 2) + Math.pow(y - radius, 2)) + ballSize / 2;
+    // Calculate distance from the center of the container to the ball's center
+    const distanceFromCenter = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
 
-    // Check if ball is touching or outside the circular boundary
-    if (distanceFromCenter >= radius) {
-      // Reverse direction to bounce back
-      dx = -dx;
-      dy = -dy;
+    // Check if the ball hits the circular boundary
+    if (distanceFromCenter + ballSize / 2 >= radius) {
+      // Play bounce sound
       playSound();
+
+      // Calculate the angle of reflection
+      const angle = Math.atan2(y - centerY, x - centerX);
+      dx = -Math.cos(angle) * Math.abs(dx); // Reflecting horizontally
+      dy = -Math.sin(angle) * Math.abs(dy); // Reflecting vertically
+
+      // Increase ball size for each bounce
       increaseSize();
     }
 
-    // Update ball position and size
+    // Update ball's position
     ball.style.left = `${x}px`;
     ball.style.top = `${y}px`;
     ball.style.width = `${ballSize}px`;
@@ -80,10 +87,11 @@
   }
 
   function increaseSize() {
-    ballSize += 2; // Increase size by 2px on each bounce
+    ballSize += 1; // Increase size by 1px on each bounce
   }
 
-  setInterval(updateBallPosition, 20); // Update every 20ms for smooth animation
+  // Run the update function every 20 milliseconds for smooth animation
+  setInterval(updateBallPosition, 20);
 </script>
 
 </body>
