@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bouncing Ball Simulation</title>
+<title>Bouncing Ball in Circle</title>
 <style>
   body {
     display: flex;
@@ -27,7 +27,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: blue;
+    background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
   }
 </style>
 </head>
@@ -44,23 +44,24 @@
   const container = document.getElementById('container');
   const sound = document.getElementById('bounceSound');
   
-  let x = Math.random() * 260; // Random starting position
-  let y = Math.random() * 260;
+  let x = 140; // Starting position at the center
+  let y = 140;
   let dx = 2;
-  let dy = 2;
+  let dy = 3;
   let ballSize = 20;
-
+  const radius = 150; // Radius of the container circle
+  
   function updateBallPosition() {
     x += dx;
     y += dy;
 
-    // Check for boundary collision
-    if (x <= 0 || x + ballSize >= 300) {
+    // Calculate the distance from the center to the ball
+    const distanceFromCenter = Math.sqrt(Math.pow(x - radius, 2) + Math.pow(y - radius, 2)) + ballSize / 2;
+
+    // Check if ball is touching or outside the circular boundary
+    if (distanceFromCenter >= radius) {
+      // Reverse direction to bounce back
       dx = -dx;
-      playSound();
-      increaseSize();
-    }
-    if (y <= 0 || y + ballSize >= 300) {
       dy = -dy;
       playSound();
       increaseSize();
