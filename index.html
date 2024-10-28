@@ -1,76 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bouncing Ball Game</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #111; }
-        #gameArea {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            border: 5px solid cyan;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-        #ball {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border-radius: 50%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bouncing Ball Simulation</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
+  }
+  #container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid red;
+    overflow: hidden;
+    background-color: white;
+  }
+  #ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: blue;
+  }
+</style>
 </head>
 <body>
 
-<div id="gameArea">
-    <div id="ball"></div>
+<div id="container">
+  <div id="ball"></div>
 </div>
 
-<audio id="boundarySound" src="boundary-sound.mp3"></audio>
-<audio id="escapeSound" src="escape-sound.mp3"></audio>
+<audio id="bounceSound" src="bounce-sound.mp3"></audio> <!-- Replace with actual sound file -->
 
 <script>
-    const ball = document.getElementById('ball');
-    const gameArea = document.getElementById('gameArea');
-    const boundarySound = document.getElementById('boundarySound');
-    const escapeSound = document.getElementById('escapeSound');
+  const ball = document.getElementById('ball');
+  const container = document.getElementById('container');
+  const sound = document.getElementById('bounceSound');
+  
+  let x = Math.random() * 260; // Random starting position
+  let y = Math.random() * 260;
+  let dx = 2;
+  let dy = 2;
+  let ballSize = 20;
 
-    let posX = 140, posY = 140;  // Initial ball position
-    let velocityX = 2, velocityY = 3;  // Ball speed
-    const radius = gameArea.offsetWidth / 2;  // Radius of circular boundary
-    const ballRadius = ball.offsetWidth / 2;
+  function updateBallPosition() {
+    x += dx;
+    y += dy;
 
-    function moveBall() {
-        posX += velocityX;
-        posY += velocityY;
-
-        const distanceFromCenter = Math.sqrt(Math.pow(posX - radius, 2) + Math.pow(posY - radius, 2));
-
-        // Check if the ball hits the boundary
-        if (distanceFromCenter + ballRadius >= radius) {
-            boundarySound.play();  // Play boundary sound
-            velocityX = -velocityX;
-            velocityY = -velocityY;
-        }
-
-        // Check if ball tries to escape (distance greater than boundary)
-        if (distanceFromCenter > radius) {
-            escapeSound.play();  // Play escape sound
-            posX = radius;
-            posY = radius;
-        }
-
-        ball.style.left = posX + 'px';
-        ball.style.top = posY + 'px';
-
-        requestAnimationFrame(moveBall);
+    // Check for boundary collision
+    if (x <= 0 || x + ballSize >= 300) {
+      dx = -dx;
+      playSound();
+      increaseSize();
+    }
+    if (y <= 0 || y + ballSize >= 300) {
+      dy = -dy;
+      playSound();
+      increaseSize();
     }
 
-    moveBall();
+    // Update ball position and size
+    ball.style.left = `${x}px`;
+    ball.style.top = `${y}px`;
+    ball.style.width = `${ballSize}px`;
+    ball.style.height = `${ballSize}px`;
+  }
+
+  function playSound() {
+    sound.currentTime = 0;
+    sound.play();
+  }
+
+  function increaseSize() {
+    ballSize += 2; // Increase size by 2px on each bounce
+  }
+
+  setInterval(updateBallPosition, 20); // Update every 20ms for smooth animation
 </script>
 
 </body>
