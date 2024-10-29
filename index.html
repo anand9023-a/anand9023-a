@@ -1,110 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Satisfying Bouncing Ball</title>
-<style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #333;
-  }
-  #container {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 10px solid;
-    border-image: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red) 1;
-    background-color: #fff;
-    overflow: hidden;
-  }
-  #ball {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: conic-gradient(from 0deg, violet, indigo, blue, green, yellow, orange, red, violet);
-  }
-  .trail {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    opacity: 0.5;
-    background: conic-gradient(from 0deg, violet, indigo, blue, green, yellow, orange, red, violet);
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .day-title {
+            color: #FF5733;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .exercise-name {
+            color: #3333FF;
+            font-weight: bold;
+        }
+        .reps {
+            color: #666;
+        }
+    </style>
 </head>
 <body>
 
-<div id="container">
-  <div id="ball"></div>
-</div>
+    <h2>6-Day Balanced Workout Schedule (with 1-Day Rest)</h2>
 
-<audio id="bounceSound" src="https://www.soundjay.com/button/sounds/button-4.mp3"></audio> <!-- Test sound URL -->
+    <div class="day">
+        <p class="day-title">Day 1: Chest & Back</p>
+        <p><span class="exercise-name">Push-ups:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Dumbbell Chest Press:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Pull-ups:</span> <span class="reps">3 sets of 5-10 reps</span></p>
+        <p><span class="exercise-name">Dumbbell Bent Over Row:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+    </div>
 
-<script>
-  const ball = document.getElementById('ball');
-  const container = document.getElementById('container');
-  const sound = document.getElementById('bounceSound');
-  
-  let x = 140; // Initial position of the ball
-  let y = 140;
-  let dx = 2; // Horizontal velocity
-  let dy = 3; // Vertical velocity
-  const ballSize = 20;
-  const radius = 145; // Radius for boundary detection
-  const centerX = container.clientWidth / 2;
-  const centerY = container.clientHeight / 2;
+    <div class="day">
+        <p class="day-title">Day 2: Shoulders & Arms</p>
+        <p><span class="exercise-name">Dumbbell Shoulder Press:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Lateral Raise:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Dumbbell Bicep Curl:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Tricep Kickback:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+    </div>
 
-  function createTrail(x, y) {
-    const trail = document.createElement('div');
-    trail.classList.add('trail');
-    trail.style.left = `${x}px`;
-    trail.style.top = `${y}px`;
-    container.appendChild(trail);
+    <div class="day">
+        <p class="day-title">Day 3: Legs & Core</p>
+        <p><span class="exercise-name">Squats:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Dumbbell Lunges:</span> <span class="reps">3 sets of 10-15 reps (each leg)</span></p>
+        <p><span class="exercise-name">Romanian Deadlift:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Plank:</span> <span class="reps">3 sets of 30-60 seconds</span></p>
+    </div>
 
-    setTimeout(() => {
-      trail.remove();
-    }, 500); // Trail duration
-  }
+    <div class="day">
+        <p class="day-title">Day 4: Chest & Back</p>
+        <p><span class="exercise-name">Incline Push-ups:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Dumbbell Chest Fly:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Dumbbell Deadlift:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Dumbbell Shrug:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+    </div>
 
-  function updateBallPosition() {
-    x += dx;
-    y += dy;
+    <div class="day">
+        <p class="day-title">Day 5: Shoulders & Arms</p>
+        <p><span class="exercise-name">Dumbbell Front Raise:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Rear Lateral Raise:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Hammer Curl:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Dumbbell Wrist Curl (Forearm):</span> <span class="reps">3 sets of 15-20 reps</span></p>
+    </div>
 
-    const distanceFromCenter = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
+    <div class="day">
+        <p class="day-title">Day 6: Legs & Core</p>
+        <p><span class="exercise-name">Goblet Squat:</span> <span class="reps">3 sets of 10-15 reps</span></p>
+        <p><span class="exercise-name">Standing Calf Raise:</span> <span class="reps">3 sets of 15-20 reps</span></p>
+        <p><span class="exercise-name">Side Plank:</span> <span class="reps">3 sets of 30 seconds (each side)</span></p>
+        <p><span class="exercise-name">Russian Twist:</span> <span class="reps">3 sets of 15-20 reps (each side)</span></p>
+    </div>
 
-    // Check collision with boundary
-    if (distanceFromCenter + ballSize / 2 >= radius) {
-      playSound();
-
-      const angle = Math.atan2(y - centerY, x - centerX);
-      dx = -Math.cos(angle) * Math.abs(dx);
-      dy = -Math.sin(angle) * Math.abs(dy);
-
-      createTrail(x, y);
-    }
-
-    ball.style.left = `${x}px`;
-    ball.style.top = `${y}px`;
-  }
-
-  function playSound() {
-    sound.currentTime = 0;
-    sound.play().catch(error => console.log("Audio play error: ", error));
-  }
-
-  document.body.addEventListener('click', () => {
-    setInterval(updateBallPosition, 20);
-  });
-
-</script>
+    <div class="day">
+        <p class="day-title">Day 7: Rest Day</p>
+        <p>Complete rest for recovery.</p>
+    </div>
 
 </body>
 </html>
