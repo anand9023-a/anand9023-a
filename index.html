@@ -22,6 +22,7 @@
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             max-width: 400px;
+            position: relative;
         }
         h1 {
             color: #ff6f61;
@@ -31,6 +32,12 @@
             font-size: 1.2em;
             margin: 20px 0;
         }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
         button {
             background: #ff6f61;
             color: white;
@@ -39,23 +46,43 @@
             border-radius: 5px;
             font-size: 1em;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
         button:hover {
             background: #ff3d3d;
         }
-        .heart {
-            color: #ff6f61;
-            font-size: 5em;
+        #noButton {
+            position: absolute;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="heart">❤️</div>
         <h1>Will You Be Mine?</h1>
         <p>Tum meri zindagi ho, meri khushi ho, aur mera sab kuch ho. Kya tum meri zindagi ke saathi banogi?</p>
-        <button onclick="alert('Mujhe pata tha tum haan bologi! ❤️')">Yes, I Do!</button>
+        <div class="button-container">
+            <button onclick="yesClicked()">Yes, I Do!</button>
+            <button id="noButton" onclick="noClicked()">No</button>
+        </div>
     </div>
+
+    <script>
+        const noButton = document.getElementById("noButton");
+
+        function yesClicked() {
+            alert("Mujhe pata tha tum haan bologi! ❤️");
+        }
+
+        function noClicked() {
+            const container = document.querySelector(".container");
+            const containerWidth = container.offsetWidth;
+            const containerHeight = container.offsetHeight;
+            
+            const randomX = Math.random() * (containerWidth - 100); // Button width approx 100px
+            const randomY = Math.random() * (containerHeight - 50); // Button height approx 50px
+            
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+    </script>
 </body>
 </html>
