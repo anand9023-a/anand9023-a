@@ -3,96 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transformation Plan</title>
+    <title>ChatBot</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background-color: #f8f9fa;
-            color: #343a40;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
         }
-        h1, h2 {
+        .chat-container {
+            width: 400px;
+            height: 500px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .chat-header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
             text-align: center;
-            color: #007bff;
+            font-size: 18px;
         }
-        ul {
-            margin-left: 20px;
+        .chat-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
         }
-        .section {
-            margin-bottom: 20px;
-            padding: 15px;
+        .message {
+            margin: 5px 0;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        .user-message {
+            background: #d1fcd3;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background: #f0f0f0;
+            align-self: flex-start;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
+            border-radius: 4px;
+            outline: none;
+        }
+        .chat-input button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background: #45a049;
         }
     </style>
 </head>
 <body>
-    <h1>4-5 Month Transformation Plan</h1>
-
-    <!-- Fitness Section -->
-    <div class="section">
-        <h2>1. Workout Plan</h2>
-        <ul>
-            <li><strong>Subah Workout (40-45 min):</strong></li>
-            <ul>
-                <li>Warm-up: Silent jumping jacks (5 min).</li>
-                <li>Strength Training: Target chest, back, abs, arms, legs.</li>
-                <li>End with Push-ups, Squats, and Sit-ups (2 sets each).</li>
-            </ul>
-            <li><strong>Diet:</strong></li>
-            <ul>
-                <li>Breakfast: Oats, peanut butter, banana, milk/boiled eggs.</li>
-                <li>Lunch: Roti, sabji, dal, chawal, chaas.</li>
-                <li>Snacks: Dry fruits + fruit (banana/apple).</li>
-                <li>Dinner: 2-3 roti + sabji + salad.</li>
-                <li>Pre-bed: Milk with turmeric or protein shake.</li>
-            </ul>
-        </ul>
+    <div class="chat-container">
+        <div class="chat-header">
+            Personal ChatBot
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hi! Mujhse kuch bhi personal question puchho.
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your question here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
     </div>
 
-    <!-- Skincare Section -->
-    <div class="section">
-        <h2>2. Skin Care Routine</h2>
-        <ul>
-            <li><strong>Morning:</strong> Face wash, moisturizer, sunscreen.</li>
-            <li><strong>Night:</strong> Face wash, aloe vera gel, or vitamin C serum.</li>
-            <li><strong>Weekly:</strong> Turmeric-honey mask (2x/week) + scrubbing.</li>
-            <li>Drink 8-10 glasses of water daily.</li>
-        </ul>
-    </div>
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const chatMessages = document.getElementById('chatMessages');
 
-    <!-- Hair Care Section -->
-    <div class="section">
-        <h2>3. Hair Care</h2>
-        <ul>
-            <li>Shampoo 2-3 times a week (mild shampoo).</li>
-            <li>Oil massage (coconut/onion oil) 2 times a week.</li>
-            <li>Apply egg + curd mask (2x/month).</li>
-        </ul>
-    </div>
+            if (userInput.value.trim() !== "") {
+                // User Message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user-message';
+                userMessage.textContent = userInput.value;
+                chatMessages.appendChild(userMessage);
 
-    <!-- Grooming Section -->
-    <div class="section">
-        <h2>4. Grooming</h2>
-        <ul>
-            <li>Use castor oil for beard growth (if needed).</li>
-            <li>Get a stylish haircut.</li>
-            <li>Maintain hygiene: Trim nails, use deodorant.</li>
-        </ul>
-    </div>
+                // Bot Reply
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot-message';
+                botMessage.textContent = generateReply(userInput.value);
+                chatMessages.appendChild(botMessage);
 
-    <!-- Personal Development -->
-    <div class="section">
-        <h2>5. Personal Development</h2>
-        <ul>
-            <li>Read daily for 10-15 minutes (self-help or articles).</li>
-            <li>Improve communication skills (practice new words).</li>
-            <li>Build confidence with mirror practice.</li>
-        </ul>
-    </div>
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    <h2 style="text-align: center;">Stay Consistent & Confident!</h2>
+                // Clear input
+                userInput.value = "";
+            }
+        }
+
+        function generateReply(question) {
+            const replies = {
+                "hello": "Hello! Kaise ho?",
+                "kaise ho": "Main theek hoon, aur tum?",
+                "naam kya hai": "Mera naam Personal ChatBot hai.",
+                "age kya hai": "Main ek program hoon, meri koi age nahi hoti.",
+                "bye": "Bye! Phir milenge."
+            };
+
+            question = question.toLowerCase();
+            return replies[question] || "Sorry, is question ka jawab abhi mere paas nahi hai.";
+        }
+    </script>
 </body>
 </html>
