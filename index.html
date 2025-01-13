@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz About Me</title>
+    <title>Quiz About Anand</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,9 +44,18 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s;
+            width: 200px;
         }
         .options button:hover {
             background: #4a47a3;
+        }
+        .correct {
+            background: #4CAF50 !important; /* Green for correct */
+            color: white;
+        }
+        .wrong {
+            background: #FF5733 !important; /* Red for wrong */
+            color: white;
         }
         #submit {
             margin-top: 20px;
@@ -68,7 +77,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Quiz About Me</h1>
+        <h1>Quiz About Anand</h1>
         <div id="quiz"></div>
         <button id="submit" onclick="calculateScore()">Submit</button>
         <div id="result"></div>
@@ -78,42 +87,41 @@
     <div id="specialMessage" style="display: none;">
         <div class="container">
             <h1>Congratulations! 🎉</h1>
-            <p>You know me so well! Tum meri zindagi ke sabse special insaan ho.</p>
-            <p>Hamesha mere saath rehna! ❤️</p>
+            <p>15+ answers sahi diye! Tum meri zindagi ke sabse khaas insaan ho! ❤️</p>
         </div>
     </div>
 
     <script>
         const questions = [
             { 
-                question: "What is my favorite color?", 
-                options: ["Blue", "Red", "Green", "Black"], 
-                answer: "Blue" 
+                question: "What is my full name?", 
+                options: ["Anand Parmar", "Anand Patel", "Anand Shah", "Anand Mehta"], 
+                answer: "Anand Parmar" 
             },
             { 
                 question: "What is my dream job?", 
-                options: ["Graphic Designer", "Engineer", "Doctor", "Actor"], 
+                options: ["Graphic Designer", "Doctor", "Engineer", "Actor"], 
                 answer: "Graphic Designer" 
             },
             { 
-                question: "What is my favorite hobby?", 
-                options: ["Traveling", "Drawing", "Cooking", "Gaming"], 
-                answer: "Drawing" 
-            },
-            { 
-                question: "What is my favorite food?", 
-                options: ["Pizza", "Pav Bhaji", "Biryani", "Samosa"], 
-                answer: "Pizza" 
-            },
-            { 
-                question: "Which city do I want to visit?", 
-                options: ["Junagadh", "Delhi", "Mumbai", "Goa"], 
+                question: "What is my favorite city?", 
+                options: ["Junagadh", "Ahmedabad", "Delhi", "Mumbai"], 
                 answer: "Junagadh" 
             },
             { 
-                question: "Which animal do I like the most?", 
-                options: ["Dog", "Cat", "Elephant", "Tiger"], 
-                answer: "Dog" 
+                question: "What do I eat after my morning workout?", 
+                options: ["Almonds and raisins with ghee", "Paratha", "Oats", "Banana"], 
+                answer: "Almonds and raisins with ghee" 
+            },
+            { 
+                question: "What is my Instagram account name?", 
+                options: ["LuxeNestOfficial", "LuxeChrono", "NestLuxe", "DesignNest"], 
+                answer: "LuxeNestOfficial" 
+            },
+            { 
+                question: "What is my birthday?", 
+                options: ["10th October", "15th August", "1st January", "25th December"], 
+                answer: "10th October" 
             },
             { 
                 question: "What is my favorite sport?", 
@@ -121,69 +129,19 @@
                 answer: "Cricket" 
             },
             { 
-                question: "What is my favorite drink?", 
-                options: ["Tea", "Coffee", "Juice", "Water"], 
-                answer: "Tea" 
-            },
-            { 
-                question: "What is my dream house style?", 
-                options: ["Haveli", "Apartment", "Cottage", "Villa"], 
-                answer: "Haveli" 
-            },
-            { 
-                question: "Which subject did I like in school?", 
-                options: ["Maths", "Science", "Art", "History"], 
-                answer: "Art" 
-            },
-            { 
-                question: "What is my favorite festival?", 
-                options: ["Diwali", "Holi", "Navratri", "Christmas"], 
-                answer: "Navratri" 
-            },
-            { 
-                question: "What is my favorite time of the day?", 
-                options: ["Morning", "Afternoon", "Evening", "Night"], 
-                answer: "Morning" 
-            },
-            { 
-                question: "What is my biggest dream?", 
-                options: ["To travel the world", "To be successful", "To have a family", "To buy a car"], 
-                answer: "To travel the world" 
-            },
-            { 
-                question: "What is my favorite movie genre?", 
-                options: ["Romantic", "Action", "Comedy", "Thriller"], 
-                answer: "Comedy" 
-            },
-            { 
-                question: "What is my favorite ice cream flavor?", 
-                options: ["Chocolate", "Vanilla", "Strawberry", "Mango"], 
-                answer: "Chocolate" 
-            },
-            { 
-                question: "Who is my inspiration?", 
-                options: ["My parents", "A famous person", "My friends", "Myself"], 
-                answer: "My parents" 
-            },
-            { 
                 question: "What do I value the most?", 
                 options: ["Love", "Money", "Success", "Fame"], 
                 answer: "Love" 
             },
             { 
-                question: "What is my favorite type of music?", 
-                options: ["Pop", "Classical", "Rock", "Folk"], 
-                answer: "Pop" 
+                question: "What is my favorite drink?", 
+                options: ["Tea", "Coffee", "Juice", "Milk"], 
+                answer: "Tea" 
             },
             { 
-                question: "What is my favorite mode of travel?", 
-                options: ["Car", "Bike", "Train", "Airplane"], 
-                answer: "Bike" 
-            },
-            { 
-                question: "What makes me the happiest?", 
-                options: ["Good food", "Spending time with you", "Traveling", "Achieving goals"], 
-                answer: "Spending time with you" 
+                question: "What is my favorite hobby?", 
+                options: ["Drawing", "Traveling", "Cooking", "Gaming"], 
+                answer: "Drawing" 
             }
         ];
 
@@ -197,8 +155,8 @@
                 <p>${index + 1}. ${q.question}</p>
                 <div class="options">
                     ${q.options.map(
-                        (option, i) => `
-                        <button onclick="selectAnswer(${index}, '${option}')">${option}</button>
+                        option => `
+                        <button onclick="selectAnswer(${index}, '${option}', this)">${option}</button>
                     `
                     ).join("")}
                 </div>
@@ -208,7 +166,22 @@
 
         const selectedAnswers = Array(questions.length).fill(null);
 
-        function selectAnswer(index, answer) {
+        function selectAnswer(index, answer, button) {
+            const buttons = button.parentElement.querySelectorAll("button");
+
+            // Disable all buttons and mark answer
+            buttons.forEach(btn => btn.disabled = true);
+            if (answer === questions[index].answer) {
+                button.classList.add("correct");
+            } else {
+                button.classList.add("wrong");
+                // Highlight correct answer
+                buttons.forEach(btn => {
+                    if (btn.textContent === questions[index].answer) {
+                        btn.classList.add("correct");
+                    }
+                });
+            }
             selectedAnswers[index] = answer;
         }
 
@@ -222,9 +195,9 @@
             });
 
             const resultDiv = document.getElementById("result");
-            resultDiv.textContent = `You scored ${score} out of 20!`;
+            resultDiv.textContent = `You scored ${score} out of ${questions.length}!`;
 
-            if (score >= 15) {
+            if (score >= 8) { // Change to 15 if you want full 20 questions.
                 document.querySelector(".container").style.display = "none";
                 document.getElementById("specialMessage").style.display = "block";
             }
