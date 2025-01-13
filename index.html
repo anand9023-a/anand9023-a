@@ -3,204 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz About Anand</title>
+    <title>Special Proposal</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            background: linear-gradient(to bottom right, #e0c3fc, #8ec5fc);
+            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
             color: #333;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 0;
-            padding: 0;
         }
         .container {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background: white;
+            background: #fff;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
+            max-width: 400px;
         }
         h1 {
-            color: #6c63ff;
-            margin-bottom: 20px;
+            color: #ff6f61;
+            font-size: 2.5em;
         }
-        .question {
+        p {
+            font-size: 1.2em;
             margin: 20px 0;
         }
-        .options {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 10px;
-        }
-        .options button {
-            background: #6c63ff;
+        button {
+            background: #ff6f61;
             color: white;
             border: none;
-            padding: 10px 15px;
-            margin: 5px 0;
+            padding: 10px 20px;
             border-radius: 5px;
+            font-size: 1em;
             cursor: pointer;
             transition: background 0.3s;
-            width: 200px;
+            margin: 10px;
         }
-        .options button:hover {
-            background: #4a47a3;
+        button:hover {
+            background: #ff3d3d;
         }
-        .correct {
-            background: #4CAF50 !important; /* Green for correct */
-            color: white;
+        .heart {
+            color: #ff6f61;
+            font-size: 5em;
+            animation: heartbeat 1s infinite;
         }
-        .wrong {
-            background: #FF5733 !important; /* Red for wrong */
-            color: white;
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
         }
-        #submit {
+        .message {
+            color: #ff3d3d;
+            font-weight: bold;
             margin-top: 20px;
-            padding: 10px 20px;
-            background: #6c63ff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #submit:hover {
-            background: #4a47a3;
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Quiz About Anand</h1>
-        <div id="quiz"></div>
-        <button id="submit" onclick="calculateScore()">Submit</button>
-        <div id="result"></div>
-    </div>
-
-    <!-- Special Page -->
-    <div id="specialMessage" style="display: none;">
-        <div class="container">
-            <h1>Congratulations! 🎉</h1>
-            <p>15+ answers sahi diye! Tum meri zindagi ke sabse khaas insaan ho! ❤️</p>
-        </div>
+        <div class="heart">❤️</div>
+        <h1>Will You Be Mine?</h1>
+        <p>Tum meri zindagi ho, meri khushi ho, aur mera sab kuch ho. Kya tum meri zindagi ke saathi banogi?</p>
+        <button onclick="handleYes()">Yes, I Do!</button>
+        <button onclick="handleNo()">No</button>
+        <div id="message" class="message"></div>
     </div>
 
     <script>
-        const questions = [
-            { 
-                question: "What is my full name?", 
-                options: ["Anand Parmar", "Anand Patel", "Anand Shah", "Anand Mehta"], 
-                answer: "Anand Parmar" 
-            },
-            { 
-                question: "What is my dream job?", 
-                options: ["Graphic Designer", "Doctor", "Engineer", "Actor"], 
-                answer: "Graphic Designer" 
-            },
-            { 
-                question: "What is my favorite city?", 
-                options: ["Junagadh", "Ahmedabad", "Delhi", "Mumbai"], 
-                answer: "Junagadh" 
-            },
-            { 
-                question: "What do I eat after my morning workout?", 
-                options: ["Almonds and raisins with ghee", "Paratha", "Oats", "Banana"], 
-                answer: "Almonds and raisins with ghee" 
-            },
-            { 
-                question: "What is my Instagram account name?", 
-                options: ["LuxeNestOfficial", "LuxeChrono", "NestLuxe", "DesignNest"], 
-                answer: "LuxeNestOfficial" 
-            },
-            { 
-                question: "What is my birthday?", 
-                options: ["10th October", "15th August", "1st January", "25th December"], 
-                answer: "10th October" 
-            },
-            { 
-                question: "What is my favorite sport?", 
-                options: ["Cricket", "Football", "Badminton", "Tennis"], 
-                answer: "Cricket" 
-            },
-            { 
-                question: "What do I value the most?", 
-                options: ["Love", "Money", "Success", "Fame"], 
-                answer: "Love" 
-            },
-            { 
-                question: "What is my favorite drink?", 
-                options: ["Tea", "Coffee", "Juice", "Milk"], 
-                answer: "Tea" 
-            },
-            { 
-                question: "What is my favorite hobby?", 
-                options: ["Drawing", "Traveling", "Cooking", "Gaming"], 
-                answer: "Drawing" 
-            }
+        const messages = [
+            "Tumhare bina zindagi adhuri hai ❤️",
+            "Mujhe pata hai tum haan zarur bologi 🥺",
+            "Main tumhare bina kuch nahi hoon 😢",
+            "Pyaar karta hoon tumse dil se ❤️",
+            "Mujhe ek mauka do tumhe khush rakhne ka 🥰"
         ];
+        let noClickCount = 0;
 
-        const quizDiv = document.getElementById("quiz");
-
-        // Render questions
-        questions.forEach((q, index) => {
-            const questionDiv = document.createElement("div");
-            questionDiv.classList.add("question");
-            questionDiv.innerHTML = `
-                <p>${index + 1}. ${q.question}</p>
-                <div class="options">
-                    ${q.options.map(
-                        option => `
-                        <button onclick="selectAnswer(${index}, '${option}', this)">${option}</button>
-                    `
-                    ).join("")}
-                </div>
-            `;
-            quizDiv.appendChild(questionDiv);
-        });
-
-        const selectedAnswers = Array(questions.length).fill(null);
-
-        function selectAnswer(index, answer, button) {
-            const buttons = button.parentElement.querySelectorAll("button");
-
-            // Disable all buttons and mark answer
-            buttons.forEach(btn => btn.disabled = true);
-            if (answer === questions[index].answer) {
-                button.classList.add("correct");
-            } else {
-                button.classList.add("wrong");
-                // Highlight correct answer
-                buttons.forEach(btn => {
-                    if (btn.textContent === questions[index].answer) {
-                        btn.classList.add("correct");
-                    }
-                });
-            }
-            selectedAnswers[index] = answer;
+        function handleYes() {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = "Mujhe pata tha tum haan bologi! Tum meri duniya ho ❤️";
+            document.body.style.background = "linear-gradient(to bottom right, #a1c4fd, #c2e9fb)";
+            const heart = document.querySelector('.heart');
+            heart.textContent = "💖💖💖";
+            heart.style.animation = "none";
         }
 
-        function calculateScore() {
-            let score = 0;
-
-            questions.forEach((q, i) => {
-                if (selectedAnswers[i] === q.answer) {
-                    score++;
-                }
-            });
-
-            const resultDiv = document.getElementById("result");
-            resultDiv.textContent = `You scored ${score} out of ${questions.length}!`;
-
-            if (score >= 8) { // Change to 15 if you want full 20 questions.
-                document.querySelector(".container").style.display = "none";
-                document.getElementById("specialMessage").style.display = "block";
-            }
+        function handleNo() {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = messages[noClickCount % messages.length];
+            noClickCount++;
         }
     </script>
 </body>
