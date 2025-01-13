@@ -3,85 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Proposal</title>
+    <title>Quiz About Me</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             text-align: center;
-            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+            background: linear-gradient(to bottom right, #e0c3fc, #8ec5fc);
             color: #333;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             margin: 0;
+            padding: 0;
         }
         .container {
-            background: #fff;
-            padding: 30px;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            position: relative;
-        }
-        h1 {
-            color: #ff6f61;
-            font-size: 2.5em;
-        }
-        p {
-            font-size: 1.2em;
-            margin: 20px 0;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
             margin-top: 20px;
         }
-        button {
-            background: #ff6f61;
+        h1 {
+            color: #6c63ff;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .options button {
+            background: #6c63ff;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 15px;
+            margin: 5px 0;
             border-radius: 5px;
-            font-size: 1em;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
+            transition: background 0.3s;
         }
-        button:hover {
-            background: #ff3d3d;
+        .options button:hover {
+            background: #4a47a3;
         }
-        #noButton {
-            position: absolute;
+        #submit {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #submit:hover {
+            background: #4a47a3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Will You Be Mine?</h1>
-        <p>Tum meri zindagi ho, meri khushi ho, aur mera sab kuch ho. Kya tum meri zindagi ke saathi banogi?</p>
-        <div class="button-container">
-            <button onclick="yesClicked()">Yes, I Do!</button>
-            <button id="noButton" onclick="noClicked()">No</button>
+        <h1>Quiz About Me</h1>
+        <div id="quiz"></div>
+        <button id="submit" onclick="calculateScore()">Submit</button>
+        <div id="result"></div>
+    </div>
+
+    <!-- Special Page -->
+    <div id="specialMessage" style="display: none;">
+        <div class="container">
+            <h1>Congratulations! 🎉</h1>
+            <p>You know me so well! Tum meri zindagi ke sabse special insaan ho.</p>
+            <p>Hamesha mere saath rehna! ❤️</p>
         </div>
     </div>
 
     <script>
-        const noButton = document.getElementById("noButton");
+        const questions = [
+            { 
+                question: "What is my favorite color?", 
+                options: ["Blue", "Red", "Green", "Black"], 
+                answer: "Blue" 
+            },
+            { 
+                question: "What is my dream job?", 
+                options: ["Graphic Designer", "Engineer", "Doctor", "Actor"], 
+                answer: "Graphic Designer" 
+            },
+            { 
+                question: "What is my favorite hobby?", 
+                options: ["Traveling", "Drawing", "Cooking", "Gaming"], 
+                answer: "Drawing" 
+            },
+            { 
+                question: "What is my favorite food?", 
+                options: ["Pizza", "Pav Bhaji", "Biryani", "Samosa"], 
+                answer: "Pizza" 
+            },
+            { 
+                question: "Which city do I want to visit?", 
+                options: ["Junagadh", "Delhi", "Mumbai", "Goa"], 
+                answer: "Junagadh" 
+            },
+            { 
+                question: "Which animal do I like the most?", 
+                options: ["Dog", "Cat", "Elephant", "Tiger"], 
+                answer: "Dog" 
+            },
+            { 
+                question: "What is my favorite sport?", 
+                options: ["Cricket", "Football", "Badminton", "Tennis"], 
+                answer: "Cricket" 
+            },
+            { 
+                question: "What is my favorite drink?", 
+                options: ["Tea", "Coffee", "Juice", "Water"], 
+                answer: "Tea" 
+            },
+            { 
+                question: "What is my dream house style?", 
+                options: ["Haveli", "Apartment", "Cottage", "Villa"], 
+                answer: "Haveli" 
+            },
+            { 
+                question: "Which subject did I like in school?", 
+                options: ["Maths", "Science", "Art", "History"], 
+                answer: "Art" 
+            },
+            { 
+                question: "What is my favorite festival?", 
+                options: ["Diwali", "Holi", "Navratri", "Christmas"], 
+                answer: "Navratri" 
+            },
+            { 
+                question: "What is my favorite time of the day?", 
+                options: ["Morning", "Afternoon", "Evening", "Night"], 
+                answer: "Morning" 
+            },
+            { 
+                question: "What is my biggest dream?", 
+                options: ["To travel the world", "To be successful", "To have a family", "To buy a car"], 
+                answer: "To travel the world" 
+            },
+            { 
+                question: "What is my favorite movie genre?", 
+                options: ["Romantic", "Action", "Comedy", "Thriller"], 
+                answer: "Comedy" 
+            },
+            { 
+                question: "What is my favorite ice cream flavor?", 
+                options: ["Chocolate", "Vanilla", "Strawberry", "Mango"], 
+                answer: "Chocolate" 
+            },
+            { 
+                question: "Who is my inspiration?", 
+                options: ["My parents", "A famous person", "My friends", "Myself"], 
+                answer: "My parents" 
+            },
+            { 
+                question: "What do I value the most?", 
+                options: ["Love", "Money", "Success", "Fame"], 
+                answer: "Love" 
+            },
+            { 
+                question: "What is my favorite type of music?", 
+                options: ["Pop", "Classical", "Rock", "Folk"], 
+                answer: "Pop" 
+            },
+            { 
+                question: "What is my favorite mode of travel?", 
+                options: ["Car", "Bike", "Train", "Airplane"], 
+                answer: "Bike" 
+            },
+            { 
+                question: "What makes me the happiest?", 
+                options: ["Good food", "Spending time with you", "Traveling", "Achieving goals"], 
+                answer: "Spending time with you" 
+            }
+        ];
 
-        function yesClicked() {
-            alert("Mujhe pata tha tum haan bologi! ❤️");
+        const quizDiv = document.getElementById("quiz");
+
+        // Render questions
+        questions.forEach((q, index) => {
+            const questionDiv = document.createElement("div");
+            questionDiv.classList.add("question");
+            questionDiv.innerHTML = `
+                <p>${index + 1}. ${q.question}</p>
+                <div class="options">
+                    ${q.options.map(
+                        (option, i) => `
+                        <button onclick="selectAnswer(${index}, '${option}')">${option}</button>
+                    `
+                    ).join("")}
+                </div>
+            `;
+            quizDiv.appendChild(questionDiv);
+        });
+
+        const selectedAnswers = Array(questions.length).fill(null);
+
+        function selectAnswer(index, answer) {
+            selectedAnswers[index] = answer;
         }
 
-        function noClicked() {
-            const container = document.querySelector(".container");
-            const containerWidth = container.offsetWidth;
-            const containerHeight = container.offsetHeight;
-            
-            const randomX = Math.random() * (containerWidth - 100); // Button width approx 100px
-            const randomY = Math.random() * (containerHeight - 50); // Button height approx 50px
-            
-            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        function calculateScore() {
+            let score = 0;
+
+            questions.forEach((q, i) => {
+                if (selectedAnswers[i] === q.answer) {
+                    score++;
+                }
+            });
+
+            const resultDiv = document.getElementById("result");
+            resultDiv.textContent = `You scored ${score} out of 20!`;
+
+            if (score >= 15) {
+                document.querySelector(".container").style.display = "none";
+                document.getElementById("specialMessage").style.display = "block";
+            }
         }
     </script>
 </body>
