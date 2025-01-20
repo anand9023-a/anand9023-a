@@ -3,102 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Proposal</title>
+    <title>Workout & Martial Arts Plan</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
-            color: #333;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
         }
         .container {
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            color: #ff6f61;
-            font-size: 2.5em;
+        h1, h2 {
+            text-align: center;
+            color: #444;
         }
-        p {
-            font-size: 1.2em;
-            margin: 20px 0;
+        h3 {
+            color: #666;
         }
-        button {
-            background: #ff6f61;
-            color: white;
-            border: none;
-            padding: 10px 20px;
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #eaeaea;
+            margin: 5px 0;
+            padding: 10px;
             border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin: 10px;
         }
-        button:hover {
-            background: #ff3d3d;
+        .day {
+            margin-bottom: 20px;
         }
-        .heart {
-            color: #ff6f61;
-            font-size: 5em;
-            animation: heartbeat 1s infinite;
-        }
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-        }
-        .message {
-            color: #ff3d3d;
-            font-weight: bold;
+        .footer {
+            text-align: center;
             margin-top: 20px;
+            font-size: 0.8em;
+            color: #777;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="heart">❤️</div>
-        <h1>Will You Be Mine?</h1>
-        <p>Tum meri zindagi ho, meri khushi ho, aur mera sab kuch ho. Kya tum meri zindagi ke saathi banogi?</p>
-        <button onclick="handleYes()">Yes, I Do!</button>
-        <button onclick="handleNo()">No</button>
-        <div id="message" class="message"></div>
+        <h1>Workout & Martial Arts Plan</h1>
+        <p><strong>Goal:</strong> Build a strong body and learn martial arts.</p>
+        <p><strong>Equipment:</strong> Dumbbells</p>
+
+        <div class="day">
+            <h2>Day 1: Chest, Shoulders, and Punch Power</h2>
+            <ul>
+                <li>Dumbbell Floor Press - 3 sets x 12 reps</li>
+                <li>Dumbbell Front Raise - 3 sets x 10 reps</li>
+                <li>Dumbbell Push-Ups (Dumbbells as handles) - 3 sets x Max reps</li>
+                <li>Dumbbell Shadow Boxing (2-3 kg dumbbells) - 3 rounds x 1 min</li>
+                <li>Dumbbell Lateral Raise - 3 sets x 12 reps</li>
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 2: Martial Arts Drills</h2>
+            <ul>
+                <li>Shadow Boxing (No Dumbbells) - 3 rounds x 2 min</li>
+                <li>Front Kicks - 3 sets x 15 per leg</li>
+                <li>Side Kicks - 3 sets x 12 per leg</li>
+                <li>Dumbbell Punch Combos (Light Dumbbells) - 3 rounds x 1 min</li>
+                <li>Core: Plank Hold with Dumbbell Row - 3 sets x 30-40 sec</li>
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 3: Back, Biceps, and Grappling Strength</h2>
+            <ul>
+                <li>Dumbbell Deadlift - 3 sets x 12 reps</li>
+                <li>Dumbbell Bent-Over Row - 3 sets x 12 reps</li>
+                <li>Dumbbell Bicep Curls - 3 sets x 12 reps</li>
+                <li>Dumbbell Hammer Curls - 3 sets x 10 reps</li>
+                <li>Dumbbell Shrugs - 3 sets x 15 reps</li>
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 4: Legs and Kick Power</h2>
+            <ul>
+                <li>Goblet Squats (Hold Dumbbell) - 3 sets x 15 reps</li>
+                <li>Dumbbell Romanian Deadlifts - 3 sets x 12 reps</li>
+                <li>Dumbbell Lunges - 3 sets x 12 reps per leg</li>
+                <li>Roundhouse Kicks - 3 sets x 10 per leg</li>
+                <li>Jump Squats (With Dumbbells) - 3 sets x 12 reps</li>
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 5: Martial Arts Combinations</h2>
+            <ul>
+                <li>Shadow Boxing Combos (Jab-Cross-Hook) - 3 rounds x 2 min</li>
+                <li>Side Kick + Spinning Back Kick - 3 sets x 10 combos</li>
+                <li>Duck and Counter Punch (With Dumbbells) - 3 rounds x 1 min</li>
+                <li>Punch-Kick Combos (Front Kick + Jab-Cross) - 3 rounds x 1 min</li>
+                <li>Cooldown: Stretching (Hamstrings, Quads, Shoulders)</li>
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 6: Core Strength and Speed</h2>
+            <ul>
+                <li>Dumbbell Russian Twists - 3 sets x 15 reps</li>
+                <li>Leg Raises (With Dumbbell Between Feet) - 3 sets x 12 reps</li>
+                <li>Mountain Climbers - 3 sets x 30 sec</li>
+                <li>Dumbbell Farmer’s Walk (Grip Strength) - 3 sets x 30 sec</li>
+                <li>Agility Drills (Shadow Boxing with Fast Movement) - 3 rounds x 1 min</li>
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 7: Rest</h2>
+            <p>Light jogging, stretching, or yoga for recovery.</p>
+        </div>
+
+        <div class="footer">
+            <p>Created for a balanced body and martial arts skills.</p>
+        </div>
     </div>
-
-    <script>
-        const messages = [
-            "Tumhare bina zindagi adhuri hai ❤️",
-            "Mujhe pata hai tum haan zarur bologi 🥺",
-            "Main tumhare bina kuch nahi hoon 😢",
-            "Pyaar karta hoon tumse dil se ❤️",
-            "Mujhe ek mauka do tumhe khush rakhne ka 🥰"
-        ];
-        let noClickCount = 0;
-
-        function handleYes() {
-            const messageDiv = document.getElementById('message');
-            messageDiv.innerHTML = "Mujhe pata tha tum haan bologi! Tum meri duniya ho ❤️";
-            document.body.style.background = "linear-gradient(to bottom right, #a1c4fd, #c2e9fb)";
-            const heart = document.querySelector('.heart');
-            heart.textContent = "💖💖💖";
-            heart.style.animation = "none";
-        }
-
-        function handleNo() {
-            const messageDiv = document.getElementById('message');
-            messageDiv.innerHTML = messages[noClickCount % messages.length];
-            noClickCount++;
-        }
-    </script>
 </body>
 </html>
