@@ -5,139 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>6-Day Workout Plan</title>
     <style>
+        /* Basic Styles */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f9;
-            color: #333;
             margin: 0;
-            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f3f3;
+            color: #333;
+            line-height: 1.6;
         }
+
+        /* Header Styling */
         header {
-            background: #0078d7;
-            color: #fff;
-            padding: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
             text-align: center;
         }
-        h1 {
+
+        header h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 28px;
         }
-        section {
-            max-width: 800px;
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
             margin: 20px auto;
-            background: #fff;
-            padding: 20px;
+            background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
+
+        section {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
         h2 {
-            color: #0078d7;
-            border-bottom: 2px solid #0078d7;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+            margin: 0 0 10px;
+            font-size: 22px;
+            color: #4CAF50;
         }
+
         ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
+
         ul li {
-            margin-bottom: 10px;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
+
+        ul li:nth-child(even) {
+            background: #f3f3f3;
+        }
+
+        /* Footer Styling */
         footer {
             text-align: center;
-            padding: 10px 0;
-            background: #0078d7;
-            color: #fff;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>6-Day Workout Plan</h1>
+    </header>
 
-<header>
-    <h1>6-Day Full Body Workout Plan</h1>
-</header>
+    <div class="container">
+        <!-- Day 1 -->
+        <section>
+            <h2>Day 1: Chest & Triceps</h2>
+            <ul>
+                <li>Wide Hand Push-Up – 3 sets of 12-15 reps</li>
+                <li>Incline Push-Up – 3 sets of 12-15 reps</li>
+                <li>Decline Push-Up – 3 sets of 10-12 reps</li>
+                <li>Diamond Push-Up – 3 sets of 8-12 reps</li>
+                <li>Dumbbell Standing One Arm Extension – 3 sets of 10-12 reps</li>
+            </ul>
+        </section>
 
-<section>
-    <h2>Day 1: Chest & Triceps</h2>
-    <ul>
-        <li>Wide Hand Push-Up – 3 sets of 12-15 reps</li>
-        <li>Incline Push-Up – 3 sets of 12-15 reps</li>
-        <li>Decline Push-Up – 3 sets of 10-12 reps</li>
-        <li>Diamond Push-Up – 3 sets of 8-12 reps</li>
-        <li>Dumbbell Standing One Arm Extension – 3 sets of 10-12 reps</li>
-    </ul>
-</section>
+        <!-- Day 2 -->
+        <section>
+            <h2>Day 2: Back, Biceps & Forearms</h2>
+            <ul>
+                <li>Dumbbell Deadlift – 3 sets of 12 reps</li>
+                <li>Dumbbell Bent Over Row – 3 sets of 10-12 reps</li>
+                <li>Dumbbell Pullover on Floor – 3 sets of 10-12 reps</li>
+                <li>Pull-Ups – 3 sets of max reps</li>
+                <li>Dumbbell Alternate Biceps Curl – 3 sets of 12-15 reps</li>
+                <li>Dumbbell Reverse Curls – 3 sets of 12-15 reps</li>
+                <li>Dumbbell Wrist Curls – 3 sets of 15-20 reps</li>
+            </ul>
+        </section>
 
-<section>
-    <h2>Day 2: Back, Biceps & Forearms</h2>
-    <ul>
-        <li>Dumbbell Deadlift – 3 sets of 12 reps</li>
-        <li>Dumbbell Bent Over Row – 3 sets of 10-12 reps</li>
-        <li>Dumbbell Pullover on Floor – 3 sets of 10-12 reps</li>
-        <li>Pull-Ups – 3 sets of max reps</li>
-        <li>Dumbbell Alternate Biceps Curl – 3 sets of 12-15 reps</li>
-        <li>Dumbbell Reverse Curls – 3 sets of 12-15 reps</li>
-        <li>Dumbbell Wrist Curls – 3 sets of 15-20 reps</li>
-    </ul>
-</section>
+        <!-- Day 3 -->
+        <section>
+            <h2>Day 3: Legs & Abs</h2>
+            <ul>
+                <li>Bodyweight Squat – 3 sets of 15-20 reps</li>
+                <li>Dumbbell Goblet Squat – 3 sets of 10-12 reps</li>
+                <li>Dumbbell Lunge – 3 sets of 12 reps (each leg)</li>
+                <li>Romanian Deadlift – 3 sets of 12-15 reps</li>
+                <li>Standing Single Leg Calf Raise – 3 sets of 20 reps (each leg)</li>
+                <li>Plank Hold – 3 sets of 30-60 seconds</li>
+                <li>Leg Raises – 3 sets of 15 reps</li>
+            </ul>
+        </section>
 
-<section>
-    <h2>Day 3: Legs & Abs</h2>
-    <ul>
-        <li>Bodyweight Squat – 3 sets of 15-20 reps</li>
-        <li>Dumbbell Goblet Squat – 3 sets of 10-12 reps</li>
-        <li>Dumbbell Lunge – 3 sets of 12 reps (each leg)</li>
-        <li>Romanian Deadlift – 3 sets of 12-15 reps</li>
-        <li>Standing Single Leg Calf Raise – 3 sets of 20 reps (each leg)</li>
-        <li>Plank Hold – 3 sets of 30-60 seconds</li>
-        <li>Leg Raises – 3 sets of 15 reps</li>
-    </ul>
-</section>
+        <!-- Day 4 -->
+        <section>
+            <h2>Day 4: Shoulders & Forearms</h2>
+            <ul>
+                <li>Dumbbell One Arm Shoulder Press – 3 sets of 10-12 reps</li>
+                <li>Dumbbell Lateral Raise – 3 sets of 12 reps</li>
+                <li>Dumbbell Rear Lateral Raise – 3 sets of 12 reps</li>
+                <li>Dumbbell Front Raise – 3 sets of 12 reps</li>
+                <li>Dumbbell Farmer’s Walk – 3 sets of 30-40 seconds</li>
+                <li>Reverse Dumbbell Wrist Curls – 3 sets of 12-15 reps</li>
+            </ul>
+        </section>
 
-<section>
-    <h2>Day 4: Shoulders & Forearms</h2>
-    <ul>
-        <li>Dumbbell One Arm Shoulder Press – 3 sets of 10-12 reps</li>
-        <li>Dumbbell Lateral Raise – 3 sets of 12 reps</li>
-        <li>Dumbbell Rear Lateral Raise – 3 sets of 12 reps</li>
-        <li>Dumbbell Front Raise – 3 sets of 12 reps</li>
-        <li>Dumbbell Farmer’s Walk – 3 sets of 30-40 seconds</li>
-        <li>Reverse Dumbbell Wrist Curls – 3 sets of 12-15 reps</li>
-    </ul>
-</section>
+        <!-- Day 5 -->
+        <section>
+            <h2>Day 5: Chest, Back & Arms</h2>
+            <ul>
+                <li>Wide Hand Push-Up – 3 sets of 12-15 reps</li>
+                <li>Incline Push-Up – 3 sets of 12-15 reps</li>
+                <li>Pull-Ups – 3 sets of max reps</li>
+                <li>Dumbbell Bent Over Row – 3 sets of 10-12 reps</li>
+                <li>Dumbbell Alternate Biceps Curl – 3 sets of 12 reps</li>
+                <li>Dumbbell Reverse Curls – 3 sets of 12-15 reps</li>
+            </ul>
+        </section>
 
-<section>
-    <h2>Day 5: Chest, Back & Arms</h2>
-    <ul>
-        <li>Wide Hand Push-Up – 3 sets of 12-15 reps</li>
-        <li>Incline Push-Up – 3 sets of 12-15 reps</li>
-        <li>Pull-Ups – 3 sets of max reps</li>
-        <li>Dumbbell Bent Over Row – 3 sets of 10-12 reps</li>
-        <li>Dumbbell Alternate Biceps Curl – 3 sets of 12 reps</li>
-        <li>Dumbbell Reverse Curls – 3 sets of 12-15 reps</li>
-    </ul>
-</section>
+        <!-- Day 6 -->
+        <section>
+            <h2>Day 6: Full Body, Abs & Forearms</h2>
+            <ul>
+                <li>Dumbbell Deadlift – 3 sets of 12 reps</li>
+                <li>Push-Up – 3 sets of 12-15 reps</li>
+                <li>Dumbbell Pullover on Floor – 3 sets of 12 reps</li>
+                <li>Bodyweight Squat – 3 sets of 15-20 reps</li>
+                <li>Plank Hold – 3 sets of 30-60 seconds</li>
+                <li>Dumbbell Hammer Curls – 3 sets of 12-15 reps</li>
+                <li>Dead Hangs (Optional) – 2 sets of 30-40 seconds</li>
+            </ul>
+        </section>
+    </div>
 
-<section>
-    <h2>Day 6: Full Body, Abs & Forearms</h2>
-    <ul>
-        <li>Dumbbell Deadlift – 3 sets of 12 reps</li>
-        <li>Push-Up – 3 sets of 12-15 reps</li>
-        <li>Dumbbell Pullover on Floor – 3 sets of 12 reps</li>
-        <li>Bodyweight Squat – 3 sets of 15-20 reps</li>
-        <li>Plank Hold – 3 sets of 30-60 seconds</li>
-        <li>Dumbbell Hammer Curls – 3 sets of 12-15 reps</li>
-        <li>Dead Hangs (Optional) – 2 sets of 30-40 seconds</li>
-    </ul>
-</section>
-
-<footer>
-    <p>Stay consistent, eat healthy, and grow stronger!</p>
-</footer>
-
+    <footer>
+        <p>© 2025 | Stay Strong and Keep Hustling!</p>
+    </footer>
 </body>
 </html>
