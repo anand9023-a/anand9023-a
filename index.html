@@ -3,184 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6-Day Workout Plan</title>
+    <title>Catch the Dot! - Fun Game</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background-color: #4B0082; /* Premium Indigo color */
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
-        nav {
-            background-color: #FF4500; /* Premium Orange color */
-            padding: 10px;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 5px 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 15px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #FF4500; /* Premium Orange color */
-            background-color: #FFF8E1; /* Highlight background */
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #FFB74D;
-            font-weight: bold;
-            text-align: center;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            padding: 8px 0;
-            display: flex;
+            flex-direction: column;
             align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
         }
-        .exercise {
-            font-weight: bold;
-            color: #4B0082; /* Premium Indigo color */
-            margin-right: 10px;
+
+        #gameContainer {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            background-color: white;
+            border: 3px solid #333;
+            margin: 20px;
+            overflow: hidden;
         }
-        .reps {
-            color: #333; /* Black for reps */
-            font-weight: normal;
+
+        #target {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.1s;
         }
-        .rest-day {
-            background-color: #e2f7e2;
-            color: #4CAF50;
-            text-align: center;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
+
+        #target:hover {
+            transform: scale(0.9);
         }
-        .progress {
-            margin-left: auto;
+
+        #scoreBoard {
+            font-size: 24px;
+            margin: 10px;
         }
-        .timer {
-            text-align: center;
-            margin: 20px 0;
+
+        #timer {
+            font-size: 20px;
+            color: #444;
         }
-        .timer button {
+
+        button {
             padding: 10px 20px;
-            background-color: #4B0082;
+            font-size: 18px;
+            background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin: 10px;
         }
-        .timer button:hover {
-            background-color: #663399;
-        }
-        footer {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        footer a {
-            color: #4B0082;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                margin: 10px 0;
-            }
+
+        button:hover {
+            background-color: #45a049;
         }
     </style>
-    <script>
-        let timer;
-        function startTimer() {
-            let seconds = 0;
-            const timerDisplay = document.getElementById("timer-display");
-            timer = setInterval(() => {
-                seconds++;
-                const mins = Math.floor(seconds / 60);
-                const secs = seconds % 60;
-                timerDisplay.textContent = `${mins}m ${secs}s`;
-            }, 1000);
-        }
-        function stopTimer() {
-            clearInterval(timer);
-        }
-    </script>
 </head>
 <body>
-    <header>
-        <h1>6-Day Workout Plan</h1>
-    </header>
-    <nav>
-        <a href="#day1">Day 1</a>
-        <a href="#day2">Day 2</a>
-        <a href="#day3">Day 3</a>
-        <a href="#day4">Day 4</a>
-        <a href="#day5">Day 5</a>
-        <a href="#day6">Day 6</a>
-        <a href="#rest-day">Rest Day</a>
-    </nav>
-    <div class="container">
-        <div class="timer">
-            <h2>Workout Timer</h2>
-            <p id="timer-display">0m 0s</p>
-            <button onclick="startTimer()">Start Timer</button>
-            <button onclick="stopTimer()">Stop Timer</button>
-        </div>
+    <h1>Catch the Moving Dot!</h1>
+    <div id="scoreBoard">Score: <span id="score">0</span></div>
+    <div id="timer">Time Left: <span id="time">30</span>s</div>
+    <div id="gameContainer"></div>
+    <button onclick="startGame()">Start New Game</button>
 
-        <h2 id="day1">Day 1: Chest & Back</h2>
-        <ul>
-            <li><input type="checkbox" class="progress"><span class="exercise">Diamond Push-ups</span> - <span class="reps">3 sets of 10-15 reps</span></li>
-            <li><input type="checkbox" class="progress"><span class="exercise">Incline Push-ups</span> - <span class="reps">3 sets of 10-15 reps</span></li>
-            <li><input type="checkbox" class="progress"><span class="exercise">Decline Push-ups</span> - <span class="reps">3 sets of 10-15 reps</span></li>
-            <li><input type="checkbox" class="progress"><span class="exercise">Wide Push-ups</span> - <span class="reps">3 sets of 10-15 reps</span></li>
-            <li><input type="checkbox" class="progress"><span class="exercise">Dumbbell Bent Over Row</span> - <span class="reps">3 sets of 10-15 reps</span></li>
-        </ul>
-        
-        <h2 id="day2">Day 2: Legs & Shoulders</h2>
-        <ul>
-            <li><input type="checkbox" class="progress"><span class="exercise">Squats</span> - <span class="reps">3 sets of 10-15 reps</span></li>
-            <li><input type="checkbox" class="progress"><span class="exercise">Dumbbell Lunges</span> - <span class="reps">3 sets of 10-15 reps</span></li>
-            <li><input type="checkbox" class="progress"><span class="exercise">Dumbbell Shoulder Press</span> - <span class="reps">3 sets of 10-15 reps</span></li>
-            <li><input type="checkbox" class="progress"><span class="exercise">Lateral Raise</span> - <span class="reps">3 sets of 10-15 reps</span></li>
-        </ul>
+    <script>
+        let score = 0;
+        let timeLeft = 30;
+        let gameInterval;
+        let timerInterval;
+        let isGameActive = false;
 
-        <!-- Add remaining days here -->
+        function createTarget() {
+            const target = document.createElement('div');
+            target.id = 'target';
+            
+            // Random position within container
+            const container = document.getElementById('gameContainer');
+            const maxX = container.offsetWidth - 30;
+            const maxY = container.offsetHeight - 30;
+            
+            target.style.left = Math.random() * maxX + 'px';
+            target.style.top = Math.random() * maxY + 'px';
+            
+            // Random movement direction and speed
+            target.speedX = (Math.random() - 0.5) * 8;
+            target.speedY = (Math.random() - 0.5) * 8;
+            
+            target.addEventListener('click', function() {
+                score++;
+                document.getElementById('score').textContent = score;
+                container.removeChild(target);
+            });
 
-        <div class="rest-day">
-            <h2 id="rest-day">Day 7: Rest Day</h2>
-            <p>No exercise. Focus on recovery.</p>
-        </div>
-    </div>
-    <footer>
-        <p>Check out <a href="https://www.bodybuilding.com" target="_blank">fitness tips</a> for more workouts!</p>
-    </footer>
+            container.appendChild(target);
+            
+            // Move target
+            const moveInterval = setInterval(() => {
+                if (!isGameActive) {
+                    clearInterval(moveInterval);
+                    return;
+                }
+                
+                let x = parseFloat(target.style.left) || 0;
+                let y = parseFloat(target.style.top) || 0;
+                
+                x += target.speedX;
+                y += target.speedY;
+                
+                // Bounce off walls
+                if (x <= 0 || x >= maxX) target.speedX *= -1;
+                if (y <= 0 || y >= maxY) target.speedY *= -1;
+                
+                target.style.left = x + 'px';
+                target.style.top = y + 'px';
+            }, 50);
+        }
+
+        function startGame() {
+            if (isGameActive) return;
+            
+            // Reset game state
+            score = 0;
+            timeLeft = 30;
+            isGameActive = true;
+            document.getElementById('score').textContent = '0';
+            document.getElementById('time').textContent = '30';
+            document.getElementById('gameContainer').innerHTML = '';
+            
+            // Create new targets every second
+            gameInterval = setInterval(createTarget, 1000);
+            
+            // Update timer
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('time').textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
+        }
+
+        function endGame() {
+            isGameActive = false;
+            clearInterval(gameInterval);
+            clearInterval(timerInterval);
+            alert(`Game Over! Final Score: ${score}`);
+            document.getElementById('gameContainer').innerHTML = '';
+        }
+    </script>
 </body>
 </html>
