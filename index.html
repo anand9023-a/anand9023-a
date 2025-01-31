@@ -3,158 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catch the Dot! - Fun Game</title>
+    <title>Stock Market Learning Roadmap</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f0f0f0;
             font-family: Arial, sans-serif;
-        }
-
-        #gameContainer {
-            position: relative;
-            width: 600px;
-            height: 400px;
-            background-color: white;
-            border: 3px solid #333;
             margin: 20px;
-            overflow: hidden;
+            padding: 20px;
+            background-color: #f4f4f4;
         }
-
-        #target {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background-color: red;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.1s;
+        h1 {
+            color: #ff5733;
+            text-align: center;
         }
-
-        #target:hover {
-            transform: scale(0.9);
+        h2 {
+            color: #2980b9;
         }
-
-        #scoreBoard {
-            font-size: 24px;
-            margin: 10px;
+        p {
+            font-size: 16px;
+            line-height: 1.6;
         }
-
-        #timer {
-            font-size: 20px;
-            color: #444;
+        .highlight {
+            color: #27ae60;
+            font-weight: bold;
         }
-
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-        }
-
-        button:hover {
-            background-color: #45a049;
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
-    <h1>Catch the Moving Dot!</h1>
-    <div id="scoreBoard">Score: <span id="score">0</span></div>
-    <div id="timer">Time Left: <span id="time">30</span>s</div>
-    <div id="gameContainer"></div>
-    <button onclick="startGame()">Start New Game</button>
 
-    <script>
-        let score = 0;
-        let timeLeft = 30;
-        let gameInterval;
-        let timerInterval;
-        let isGameActive = false;
+    <div class="container">
+        <h1>Stock Market Learning Roadmap</h1>
 
-        function createTarget() {
-            const target = document.createElement('div');
-            target.id = 'target';
-            
-            // Random position within container
-            const container = document.getElementById('gameContainer');
-            const maxX = container.offsetWidth - 30;
-            const maxY = container.offsetHeight - 30;
-            
-            target.style.left = Math.random() * maxX + 'px';
-            target.style.top = Math.random() * maxY + 'px';
-            
-            // Random movement direction and speed
-            target.speedX = (Math.random() - 0.5) * 8;
-            target.speedY = (Math.random() - 0.5) * 8;
-            
-            target.addEventListener('click', function() {
-                score++;
-                document.getElementById('score').textContent = score;
-                container.removeChild(target);
-            });
+        <h2>Month 1: Strong Foundation (Basics & Practical Understanding)</h2>
+        <p><span class="highlight">Week 1:</span> Introduction to Stock Market</p>
+        <p>• Stock Market kya hai aur kaise kaam karta hai?</p>
+        <p>• NSE vs BSE, SEBI ka role</p>
 
-            container.appendChild(target);
-            
-            // Move target
-            const moveInterval = setInterval(() => {
-                if (!isGameActive) {
-                    clearInterval(moveInterval);
-                    return;
-                }
-                
-                let x = parseFloat(target.style.left) || 0;
-                let y = parseFloat(target.style.top) || 0;
-                
-                x += target.speedX;
-                y += target.speedY;
-                
-                // Bounce off walls
-                if (x <= 0 || x >= maxX) target.speedX *= -1;
-                if (y <= 0 || y >= maxY) target.speedY *= -1;
-                
-                target.style.left = x + 'px';
-                target.style.top = y + 'px';
-            }, 50);
-        }
+        <p><span class="highlight">Week 2:</span> Stock Market Instruments</p>
+        <p>• Shares vs Bonds vs Mutual Funds vs ETFs</p>
+        <p>• Trading vs Investing – Difference & Which is better?</p>
 
-        function startGame() {
-            if (isGameActive) return;
-            
-            // Reset game state
-            score = 0;
-            timeLeft = 30;
-            isGameActive = true;
-            document.getElementById('score').textContent = '0';
-            document.getElementById('time').textContent = '30';
-            document.getElementById('gameContainer').innerHTML = '';
-            
-            // Create new targets every second
-            gameInterval = setInterval(createTarget, 1000);
-            
-            // Update timer
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                document.getElementById('time').textContent = timeLeft;
-                
-                if (timeLeft <= 0) {
-                    endGame();
-                }
-            }, 1000);
-        }
+        <h2>Month 2: Intermediate Level – Technical Analysis & Trading Strategies</h2>
+        <p><span class="highlight">Week 5:</span> Basics of Technical Analysis</p>
+        <p>• Candlestick, Line, Bar charts</p>
+        <p>• Support & Resistance, Trendlines</p>
 
-        function endGame() {
-            isGameActive = false;
-            clearInterval(gameInterval);
-            clearInterval(timerInterval);
-            alert(`Game Over! Final Score: ${score}`);
-            document.getElementById('gameContainer').innerHTML = '';
-        }
-    </script>
+        <h2>Month 3: Advanced Strategies & Mastery</h2>
+        <p><span class="highlight">Week 9:</span> Advanced Technical Analysis</p>
+        <p>• Fibonacci Retracement, Volume Analysis</p>
+        <p>• Options Greeks (Delta, Theta, Vega, Gamma)</p>
+
+        <h2>Bonus: Best Resources for Learning</h2>
+        <p><span class="highlight">Books:</span> The Intelligent Investor, Trading in the Zone</p>
+        <p><span class="highlight">YouTube:</span> PR Sundar, Power of Stocks</p>
+
+        <h2>Key to Success</h2>
+        <p>• Daily practice karo, patience rakho</p>
+        <p>• News aur market trends update rakh</p>
+    </div>
+
 </body>
 </html>
