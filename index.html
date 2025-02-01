@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D House Design</title>
+  <title>Modern 3D House Design</title>
   <style>
     body { margin: 0; }
     canvas { display: block; }
@@ -13,40 +13,53 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <script>
-    // Set up the scene, camera, and renderer
+    // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    // Create house base (walls and roof)
-    const houseGeometry = new THREE.BoxGeometry(4, 4, 4);
-    const houseMaterial = new THREE.MeshBasicMaterial({ color: 0x8b4513 });
-    const house = new THREE.Mesh(houseGeometry, houseMaterial);
-    scene.add(house);
+    // Create house base (modern walls)
+    const wallsGeometry = new THREE.BoxGeometry(8, 6, 8); // Longer walls for modern look
+    const wallsMaterial = new THREE.MeshStandardMaterial({ color: 0xA0A0A0, roughness: 0.6 });
+    const walls = new THREE.Mesh(wallsGeometry, wallsMaterial);
+    scene.add(walls);
 
-    // Create roof (pyramid shape)
-    const roofGeometry = new THREE.ConeGeometry(3, 2, 4);
-    const roofMaterial = new THREE.MeshBasicMaterial({ color: 0x888888 });
+    // Flat roof
+    const roofGeometry = new THREE.BoxGeometry(8, 1, 8); // Flat roof
+    const roofMaterial = new THREE.MeshStandardMaterial({ color: 0x333333 });
     const roof = new THREE.Mesh(roofGeometry, roofMaterial);
-    roof.position.y = 3;  // Position the roof above the walls
+    roof.position.y = 3; // Position the roof slightly above the walls
     scene.add(roof);
 
-    // Create door (a simple rectangle)
-    const doorGeometry = new THREE.BoxGeometry(1, 2, 0.1);
-    const doorMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    // Large window (front side)
+    const windowGeometry = new THREE.BoxGeometry(4, 2, 0.1);
+    const windowMaterial = new THREE.MeshBasicMaterial({ color: 0x87CEEB, opacity: 0.5, transparent: true });
+    const window = new THREE.Mesh(windowGeometry, windowMaterial);
+    window.position.set(0, 1, 4); // Front center
+    scene.add(window);
+
+    // Door
+    const doorGeometry = new THREE.BoxGeometry(1.5, 2.5, 0.1);
+    const doorMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
     const door = new THREE.Mesh(doorGeometry, doorMaterial);
-    door.position.set(0, -1, 2);  // Position door at front
+    door.position.set(0, -1, 4); // Centered at the front
     scene.add(door);
 
-    // Set camera position
-    camera.position.z = 10;
+    // Add lighting (modern houses have lots of light)
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(0, 10, 0);
+    scene.add(light);
+
+    // Camera positioning
+    camera.position.z = 15;
+    camera.position.y = 5;
+    camera.lookAt(new THREE.Vector3(0, 3, 0));
 
     // Animation loop
     function animate() {
       requestAnimationFrame(animate);
-      house.rotation.y += 0.01; // Rotate the house for effect
       renderer.render(scene, camera);
     }
     animate();
