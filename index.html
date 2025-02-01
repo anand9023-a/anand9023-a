@@ -1,71 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Market Learning Roadmap</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            color: #ff5733;
-            text-align: center;
-        }
-        h2 {
-            color: #2980b9;
-        }
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        .highlight {
-            color: #27ae60;
-            font-weight: bold;
-        }
-        .container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D House Design</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
 </head>
 <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    <div class="container">
-        <h1>Stock Market Learning Roadmap</h1>
+  <script>
+    // Set up the scene, camera, and renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-        <h2>Month 1: Strong Foundation (Basics & Practical Understanding)</h2>
-        <p><span class="highlight">Week 1:</span> Introduction to Stock Market</p>
-        <p>• Stock Market kya hai aur kaise kaam karta hai?</p>
-        <p>• NSE vs BSE, SEBI ka role</p>
+    // Create house base (walls and roof)
+    const houseGeometry = new THREE.BoxGeometry(4, 4, 4);
+    const houseMaterial = new THREE.MeshBasicMaterial({ color: 0x8b4513 });
+    const house = new THREE.Mesh(houseGeometry, houseMaterial);
+    scene.add(house);
 
-        <p><span class="highlight">Week 2:</span> Stock Market Instruments</p>
-        <p>• Shares vs Bonds vs Mutual Funds vs ETFs</p>
-        <p>• Trading vs Investing – Difference & Which is better?</p>
+    // Create roof (pyramid shape)
+    const roofGeometry = new THREE.ConeGeometry(3, 2, 4);
+    const roofMaterial = new THREE.MeshBasicMaterial({ color: 0x888888 });
+    const roof = new THREE.Mesh(roofGeometry, roofMaterial);
+    roof.position.y = 3;  // Position the roof above the walls
+    scene.add(roof);
 
-        <h2>Month 2: Intermediate Level – Technical Analysis & Trading Strategies</h2>
-        <p><span class="highlight">Week 5:</span> Basics of Technical Analysis</p>
-        <p>• Candlestick, Line, Bar charts</p>
-        <p>• Support & Resistance, Trendlines</p>
+    // Create door (a simple rectangle)
+    const doorGeometry = new THREE.BoxGeometry(1, 2, 0.1);
+    const doorMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    const door = new THREE.Mesh(doorGeometry, doorMaterial);
+    door.position.set(0, -1, 2);  // Position door at front
+    scene.add(door);
 
-        <h2>Month 3: Advanced Strategies & Mastery</h2>
-        <p><span class="highlight">Week 9:</span> Advanced Technical Analysis</p>
-        <p>• Fibonacci Retracement, Volume Analysis</p>
-        <p>• Options Greeks (Delta, Theta, Vega, Gamma)</p>
+    // Set camera position
+    camera.position.z = 10;
 
-        <h2>Bonus: Best Resources for Learning</h2>
-        <p><span class="highlight">Books:</span> The Intelligent Investor, Trading in the Zone</p>
-        <p><span class="highlight">YouTube:</span> PR Sundar, Power of Stocks</p>
-
-        <h2>Key to Success</h2>
-        <p>• Daily practice karo, patience rakho</p>
-        <p>• News aur market trends update rakh</p>
-    </div>
-
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      house.rotation.y += 0.01; // Rotate the house for effect
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
 </body>
 </html>
