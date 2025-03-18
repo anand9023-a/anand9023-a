@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Home Workout Plan</title>
+    <title>Full Home Workout Plan (Dumbbells Only)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,22 +26,25 @@
         h3 {
             color: #d9534f;
         }
-        .workout-list {
-            width: 100%;
-            border-collapse: collapse;
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .workout-list td {
+        ul li {
+            background: #ddd;
+            margin: 5px 0;
             padding: 10px;
-            border-bottom: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
         }
         .exercise {
             font-weight: bold;
             color: black;
-            width: 70%;
         }
         .reps {
-            text-align: right;
-            width: 30%;
+            color: #444;
+            font-style: italic;
         }
     </style>
 </head>
@@ -52,61 +55,55 @@
     <h2>6 Days a Week - Grappler-Style Workout</h2>
 
     <h3>🔴 Day 1: Chest & Triceps</h3>
-    <table class="workout-list">
-        <tr>
-            <td class="exercise">Push-ups (Bodyweight)</td>
-            <td class="reps">4 sets × 15 reps</td>
-        </tr>
-        <tr>
-            <td class="exercise">Dumbbell Floor Press</td>
-            <td class="reps">4 sets × 12 reps</td>
-        </tr>
-        <tr>
-            <td class="exercise">Dumbbell Chest Flys</td>
-            <td class="reps">4 sets × 12 reps</td>
-        </tr>
-        <tr>
-            <td class="exercise">Dumbbell Triceps Extensions</td>
-            <td class="reps">3 sets × 12 reps</td>
-        </tr>
-    </table>
+    <ul>
+        <li><span class="exercise">Push-ups (Bodyweight)</span> <span class="reps">4 sets × 15 reps</span></li>
+        <li><span class="exercise">Dumbbell Floor Press</span> <span class="reps">4 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Chest Flys</span> <span class="reps">4 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Triceps Extensions</span> <span class="reps">3 sets × 12 reps</span></li>
+        <li><span class="exercise">Diamond Push-ups</span> <span class="reps">3 sets × 12 reps</span></li>
+    </ul>
 
     <h3>🔵 Day 2: Back, Biceps & Forearms</h3>
-    <table class="workout-list">
-        <tr>
-            <td class="exercise">Dumbbell Bent-over Rows</td>
-            <td class="reps">4 sets × 12 reps</td>
-        </tr>
-        <tr>
-            <td class="exercise">Dumbbell Reverse Flys</td>
-            <td class="reps">3 sets × 12 reps</td>
-        </tr>
-        <tr>
-            <td class="exercise">Dumbbell Hammer Curls</td>
-            <td class="reps">3 sets × 12 reps</td>
-        </tr>
-    </table>
+    <ul>
+        <li><span class="exercise">Dumbbell Bent-over Rows</span> <span class="reps">4 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Reverse Flys</span> <span class="reps">3 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Hammer Curls</span> <span class="reps">3 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Wrist Curls (Palm Up)</span> <span class="reps">3 sets × 15 reps</span></li>
+        <li><span class="exercise">Dumbbell Reverse Wrist Curls (Palm Down)</span> <span class="reps">3 sets × 15 reps</span></li>
+        <li><span class="exercise">Farmer’s Walk</span> <span class="reps">3 sets × 30 sec</span></li>
+    </ul>
 
     <h3>🟡 Day 3: Shoulders & Neck</h3>
-    <table class="workout-list">
-        <tr>
-            <td class="exercise">Dumbbell Shoulder Press</td>
-            <td class="reps">4 sets × 12 reps</td>
-        </tr>
-        <tr>
-            <td class="exercise">Dumbbell Lateral Raises</td>
-            <td class="reps">4 sets × 12 reps</td>
-        </tr>
-        <tr>
-            <td class="exercise">Dumbbell Front Raises</td>
-            <td class="reps">3 sets × 12 reps</td>
-        </tr>
-        <tr>
-            <td class="exercise">Dumbbell Shrugs (Traps & Neck)</td>
-            <td class="reps">4 sets × 15 reps</td>
-        </tr>
-    </table>
+    <ul>
+        <li><span class="exercise">Dumbbell Shoulder Press</span> <span class="reps">4 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Lateral Raises</span> <span class="reps">4 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Front Raises</span> <span class="reps">3 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Shrugs</span> <span class="reps">4 sets × 15 reps</span></li>
+        <li><span class="exercise">Neck Flexion</span> <span class="reps">3 sets × 15 reps</span></li>
+    </ul>
 
+    <h3>🟢 Day 4: Legs & Core</h3>
+    <ul>
+        <li><span class="exercise">Dumbbell Squats</span> <span class="reps">4 sets × 15 reps</span></li>
+        <li><span class="exercise">Dumbbell Lunges</span> <span class="reps">3 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Romanian Deadlifts</span> <span class="reps">3 sets × 12 reps</span></li>
+    </ul>
+
+    <h3>🟠 Day 5: Arms & Forearms</h3>
+    <ul>
+        <li><span class="exercise">Dumbbell Bicep Curls</span> <span class="reps">4 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Hammer Curls</span> <span class="reps">4 sets × 12 reps</span></li>
+        <li><span class="exercise">Dumbbell Triceps Kickbacks</span> <span class="reps">3 sets × 12 reps</span></li>
+    </ul>
+
+    <h3>🟣 Day 6: Full Body + Neck & Jawline</h3>
+    <ul>
+        <li><span class="exercise">Dumbbell Snatch</span> <span class="reps">4 sets × 10 reps</span></li>
+        <li><span class="exercise">Dumbbell Deadlifts</span> <span class="reps">4 sets × 12 reps</span></li>
+        <li><span class="exercise">Push-ups (Explosive)</span> <span class="reps">3 sets × 12 reps</span></li>
+        <li><span class="exercise">Neck Flexion</span> <span class="reps">3 sets × 15 reps</span></li>
+        <li><span class="exercise">Neck Side Bends</span> <span class="reps">3 sets × 15 reps</span></li>
+    </ul>
 </div>
 
 </body>
