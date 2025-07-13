@@ -3,402 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6-Day Workout Plan</title>
+    <title>6-Day Workout Plan for Anand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            background-color: #f4f4f4;
+            font-family: 'Inter', sans-serif;
         }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .day {
-            background-color: #28a745;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        .exercise-box {
-            background-color: white;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #007bff;
-        }
-        .exercise-name {
-            font-size: 16px;
-            font-weight: bold;
-            color: #007bff;
-        }
-        .sets {
-            font-size: 14px;
-            color: black;
+        .tab-active {
+            border-bottom-color: #3b82f6; /* blue-500 */
+            color: #3b82f6;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-900 text-white antialiased">
 
-    <h1>6-Day Workout Plan (Sirf Dumbbells ke Saath)</h1>
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                6-Day Workout Plan for Anand
+            </h1>
+            <p class="text-gray-400 mt-2">Your weekly guide to strength and conditioning.</p>
+        </header>
 
-    <div class="day">Day 1: Chest, Back & Traps (Upper Body Strength)</div>
+        <!-- Main Content -->
+        <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-2xl overflow-hidden">
+            <!-- Tabs Navigation -->
+            <div id="tabs" class="flex flex-wrap justify-center sm:justify-start border-b border-gray-700 px-4">
+                <!-- Tabs will be dynamically inserted here -->
+            </div>
 
-    <div class="exercise-box">
-        <div class="exercise-name">1️⃣ Dumbbell Floor Press:</div>
-        <div class="sets">4 sets x 10-12 reps</div>
+            <!-- Content Area -->
+            <div id="tab-content" class="p-6">
+                <!-- Workout details will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-8 text-gray-500 text-sm">
+            <p>Stay consistent and crush your goals!</p>
+        </footer>
     </div>
 
-    <div class="exercise-box">
-        <div class="exercise-name">2️⃣ Incline Push-ups (Upper Chest):</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
+    <script>
+        const workoutPlan = {
+            "Day 1: Chest + Triceps": [
+                { no: 1, exercise: "Wide Push-ups", sets: "4 sets x 12-15 reps" },
+                { no: 2, exercise: "Flat Dumbbell Chest Press", sets: "4 sets x 10-12 reps" },
+                { no: 3, exercise: "Dumbbell Chest Fly", sets: "3 sets x 12 reps" },
+                { no: 4, exercise: "Triceps Dips (Bench/Bed)", sets: "4 sets x 12 reps" },
+                { no: 5, exercise: "Overhead Dumbbell Triceps Extension", sets: "3 sets x 12-15 reps" },
+                { no: 6, exercise: "Triceps Kickbacks", sets: "3 sets x 15 reps" },
+            ],
+            "Day 2: Legs + Forearms": [
+                { no: 1, exercise: "Bodyweight Squats", sets: "4 sets x 20 reps" },
+                { no: 2, exercise: "Dumbbell Goblet Squat", sets: "3 sets x 15 reps" },
+                { no: 3, exercise: "Dumbbell Lunges (Each leg)", sets: "3 sets x 10 reps" },
+                { no: 4, exercise: "Sumo Squats", sets: "3 sets x 12 reps" },
+                { no: 5, exercise: "Standing Dumbbell Calf Raises", sets: "4 sets x 25 reps" },
+                { no: 6, exercise: "Wrist Curls (Forearms)", sets: "3 sets x 20 reps" },
+                { no: 7, exercise: "Reverse Wrist Curls", sets: "3 sets x 15 reps" },
+                { no: 8, exercise: "Farmers Walk (Hold dumbbells and walk)", sets: "3 sets x 30 sec" },
+            ],
+            "Day 3: Back + Biceps": [
+                { no: 1, exercise: "Pull-ups (Assisted if needed)", sets: "4 sets x Max reps" },
+                { no: 2, exercise: "Dumbbell Rows (Each arm)", sets: "3 sets x 12 reps" },
+                { no: 3, exercise: "Reverse Fly (Back)", sets: "3 sets x 15 reps" },
+                { no: 4, exercise: "Dumbbell Deadlifts", sets: "4 sets x 10-12 reps" },
+                { no: 5, exercise: "Dumbbell Bicep Curls", sets: "3 sets x 15 reps" },
+                { no: 6, exercise: "Hammer Curls", sets: "3 sets x 12 reps" },
+                { no: 7, exercise: "Concentration Curls", sets: "3 sets x 10 reps" },
+            ],
+            "Day 4: Legs + Core": [
+                { no: 1, exercise: "Bodyweight Jump Squats", sets: "4 sets x 15 reps" },
+                { no: 2, exercise: "Wall Sit Hold", sets: "3 sets x 30 sec" },
+                { no: 3, exercise: "Dumbbell Step-ups (on bench/bed)", sets: "3 sets x 10 each leg" },
+                { no: 4, exercise: "Standing Calf Raises", sets: "4 sets x 25 reps" },
+                { no: 5, exercise: "Leg Raises", sets: "3 sets x 15 reps" },
+                { no: 6, exercise: "Flutter Kicks", sets: "3 sets x 20 reps" },
+                { no: 7, exercise: "Plank Hold", sets: "3 sets x 30-45 sec" },
+            ],
+            "Day 5: Shoulders + Traps": [
+                { no: 1, exercise: "Dumbbell Shoulder Press", sets: "4 sets x 12 reps" },
+                { no: 2, exercise: "Lateral Raises", sets: "3 sets x 15 reps" },
+                { no: 3, exercise: "Front Raises", sets: "3 sets x 12 reps" },
+                { no: 4, exercise: "Bent Over Reverse Fly", sets: "3 sets x 12 reps" },
+                { no: 5, exercise: "Shrugs", sets: "4 sets x 20 reps" },
+                { no: 6, exercise: "Dumbbell Upright Rows", sets: "3 sets x 12 reps" },
+            ],
+            "Day 6: Arms + Core (Finisher)": [
+                { no: 1, exercise: "Diamond Push-ups", sets: "3 sets x 15 reps" },
+                { no: 2, exercise: "Zottman Curls", sets: "3 sets x 12 reps" },
+                { no: 3, exercise: "Overhead Dumbbell Extension", sets: "3 sets x 12 reps" },
+                { no: 4, exercise: "Dumbbell Side Bends", sets: "3 sets x 20 reps each side" },
+                { no: 5, exercise: "Russian Twists (No dumbbell)", sets: "3 sets x 30 reps" },
+                { no: 6, exercise: "Reverse Crunches", sets: "3 sets x 15 reps" },
+                { no: 7, exercise: "Forearm Plank", sets: "3 sets x 30-45 sec" },
+            ],
+        };
 
-    <div class="exercise-box">
-        <div class="exercise-name">3️⃣ Dumbbell Chest Flys:</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
+        const tabsContainer = document.getElementById('tabs');
+        const contentContainer = document.getElementById('tab-content');
 
-    <div class="exercise-box">
-        <div class="exercise-name">4️⃣ Pull-ups (or Negative Pull-ups):</div>
-        <div class="sets">4 sets x 6-10 reps</div>
-    </div>
+        function showTabContent(day) {
+            // Update active tab style
+            const allTabs = document.querySelectorAll('.tab');
+            allTabs.forEach(t => {
+                t.classList.remove('tab-active', 'font-semibold');
+                t.classList.add('text-gray-400');
+            });
+            const activeTab = document.querySelector(`.tab[data-day="${day}"]`);
+            activeTab.classList.add('tab-active', 'font-semibold');
+            activeTab.classList.remove('text-gray-400');
 
-    <div class="exercise-box">
-        <div class="exercise-name">5️⃣ Dumbbell Bent-over Rows:</div>
-        <div class="sets">4 sets x 12 reps</div>
-    </div>
+            // Clear previous content
+            contentContainer.innerHTML = '';
+            
+            // Create and append new content
+            const exercises = workoutPlan[day];
+            const table = document.createElement('table');
+            table.className = 'w-full text-left table-auto';
+            
+            const thead = `
+                <thead class="bg-gray-700/50">
+                    <tr>
+                        <th class="p-3 text-sm font-semibold tracking-wide text-center w-12">No.</th>
+                        <th class="p-3 text-sm font-semibold tracking-wide">Exercise</th>
+                        <th class="p-3 text-sm font-semibold tracking-wide">Sets/Reps</th>
+                    </tr>
+                </thead>
+            `;
+            table.innerHTML = thead;
 
-    <div class="exercise-box">
-        <div class="exercise-name">6️⃣ Dumbbell Pullover (Lats & Chest):</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
+            const tbody = document.createElement('tbody');
+            exercises.forEach(ex => {
+                const row = document.createElement('tr');
+                row.className = 'border-b border-gray-700 hover:bg-gray-700/50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="p-3 text-center text-gray-300">${ex.no}</td>
+                    <td class="p-3 font-medium">${ex.exercise}</td>
+                    <td class="p-3 text-gray-400">${ex.sets.replace(/~/g, ' ').replace(/\$/g, '')}</td>
+                `;
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
 
-    <div class="exercise-box">
-        <div class="exercise-name">7️⃣ Dumbbell Shrugs (Traps):</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
+            contentContainer.appendChild(table);
+        }
 
-    <div class="day">Day 2: Legs & Shoulders (Lower Body Power + Shoulder Size)</div>
+        // Initialize tabs and content
+        window.addEventListener('DOMContentLoaded', () => {
+            const days = Object.keys(workoutPlan);
+            days.forEach((day, index) => {
+                const tab = document.createElement('button');
+                tab.textContent = day.split(':')[0]; // e.g., "Day 1"
+                tab.className = 'tab py-3 px-2 sm:px-4 text-sm sm:text-base font-medium border-b-2 border-transparent transition-colors duration-300';
+                tab.dataset.day = day;
+                tab.addEventListener('click', () => showTabContent(day));
+                tabsContainer.appendChild(tab);
+            });
 
-    <div class="exercise-box">
-        <div class="exercise-name">1️⃣ Goblet Squat (Quads & Glutes):</div>
-        <div class="sets">4 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">2️⃣ Romanian Deadlifts (Hamstrings & Glutes):</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">3️⃣ Bulgarian Split Squats (Balance & Legs):</div>
-        <div class="sets">3 sets x 10 reps (each leg)</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">4️⃣ Standing Calf Raises:</div>
-        <div class="sets">3 sets x 20 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">5️⃣ Dumbbell Shoulder Press:</div>
-        <div class="sets">4 sets x 10-12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">6️⃣ Dumbbell Lateral Raises (Width):</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">7️⃣ Face Pulls (Posterior Delts & Posture):</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
-
-    <div class="day">Day 3: Arms, Forearms & Grip (Bigger & Stronger Arms)</div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">1️⃣ Dumbbell Bicep Curls:</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">2️⃣ Hammer Curls (Forearm & Biceps):</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">3️⃣ Dumbbell Concentration Curls:</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">4️⃣ Dumbbell Triceps Kickbacks:</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">5️⃣ Dumbbell Overhead Triceps Extension:</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">6️⃣ Dumbbell Wrist Curls (Palm Up):</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">7️⃣ Dumbbell Reverse Wrist Curls (Palm Down):</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">8️⃣ Farmer’s Walk (Grip Strength):</div>
-        <div class="sets">3 sets x 30 sec</div>
-    </div>
-
+            // Show the first day by default
+            if (days.length > 0) {
+                showTabContent(days[0]);
+            }
+        });
+    </script>
 </body>
 </html>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workout Plan</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .day {
-            background-color: #28a745;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        .exercise-box {
-            background-color: white;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #007bff;
-        }
-        .exercise-name {
-            font-size: 16px;
-            font-weight: bold;
-            color: #007bff;
-        }
-        .sets {
-            font-size: 14px;
-            color: black;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Workout Plan (Day 4 & 5)</h1>
-
-    <div class="day">Day 4: Chest, Back & Neck (Upper Body Symmetry)</div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">1️⃣ Diamond Push-ups (Triceps & Inner Chest):</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">2️⃣ Wide Push-ups (Outer Chest):</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">3️⃣ Dumbbell Floor Press:</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">4️⃣ Dumbbell Bent-over Rows:</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">5️⃣ Dumbbell Deadlifts (Full Back & Legs):</div>
-        <div class="sets">3 sets x 10 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">6️⃣ Dumbbell Shrugs:</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">7️⃣ Dumbbell Neck Flexion (Front Neck):</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">8️⃣ Dumbbell Neck Extension (Back Neck):</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">9️⃣ Neck Side Bends (Jawline & Neck Thickness):</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
-
-    <div class="day">Day 5: Legs, Calves & Shoulders (Leg Aesthetics & Shoulder Strength)</div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">1️⃣ Goblet Squat:</div>
-        <div class="sets">4 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">2️⃣ Dumbbell Lunges:</div>
-        <div class="sets">3 sets x 10 reps (each leg)</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">3️⃣ Standing Calf Raises:</div>
-        <div class="sets">3 sets x 20 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">4️⃣ Seated Calf Raises (Use Dumbbells on Knees):</div>
-        <div class="sets">3 sets x 20 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">5️⃣ Dumbbell Front Raises (Front Delts):</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">6️⃣ Dumbbell Rear Lateral Raises (Rear Delts):</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">7️⃣ Plate Pinch Hold (Grip Strength):</div>
-        <div class="sets">3 sets x 30 sec</div>
-    </div>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workout Plan</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .day {
-            background-color: #28a745;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        .exercise-box {
-            background-color: white;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #007bff;
-        }
-        .exercise-name {
-            font-size: 16px;
-            font-weight: bold;
-            color: #007bff;
-        }
-        .sets {
-            font-size: 14px;
-            color: black;
-        }
-        .recovery-box {
-            background-color: white;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #28a745;
-            font-size: 16px;
-            font-weight: bold;
-            color: #28a745;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Workout Plan (Day 6 & 7)</h1>
-
-    <div class="day">Day 6: Core, Abs & Jawline (Aesthetic Core & Defined Face)</div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">1️⃣ Hanging Leg Raises (Use Table/Bed Support):</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">2️⃣ Russian Twists (With Dumbbell):</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">3️⃣ Side Plank (Obliques & Core Stability):</div>
-        <div class="sets">3 sets x 30 sec</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">4️⃣ Bicycle Crunches:</div>
-        <div class="sets">3 sets x 15 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">5️⃣ Dumbbell Side Bends (Obliques & Waistline):</div>
-        <div class="sets">3 sets x 12 reps</div>
-    </div>
-
-    <div class="exercise-box">
-        <div class="exercise-name">6️⃣ Mewing & Hard Chewing Practice:</div>
-        <div class="sets">Daily</div>
-    </div>
-
-    <div class="day">Day 7: Active Rest / Recovery</div>
-
-    <div class="recovery-box">✅ Stretching & Mobility Work</div>
-    <div class="recovery-box">✅ Walking/Yoga for Recovery</div>
-    <div class="recovery-box">✅ Massage or Foam Rolling</div>
-
-</body>
-                                              </html>
