@@ -1,165 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anand Parmar - Portfolio</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Anand's Ultimate Daily Routine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script>
-    <script src="https://unpkg.com/lucide-icons@latest"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for a professional look */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
+            font-family: 'Poppins', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
-        .card {
-            background-color: white;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .routine-item.current {
+            background-color: #4f46e5; /* Indigo 600 */
+            transform: scale(1.03);
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4), 0 4px 6px -2px rgba(79, 70, 229, 0.2);
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        .routine-item.current .time, .routine-item.current .activity-title {
+            color: #ffffff;
         }
-        .icon-style {
-            width: 20px;
-            height: 20px;
-            stroke-width: 2;
-            margin-right: 0.75rem;
-            color: #4f46e5; /* Indigo color for icons */
+        .routine-item.current .activity-desc {
+            color: #e0e7ff; /* Indigo 100 */
+        }
+        .key-point-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="bg-gray-900 text-white antialiased">
 
-    <!-- Main Container -->
-    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
-
-        <!-- Header/Profile Section -->
-        <header class="card p-8 mb-8 flex flex-col md:flex-row items-center text-center md:text-left">
-            <!-- Profile Picture -->
-            <div class="w-40 h-40 md:w-48 md:h-48 mb-6 md:mb-0 md:mr-8 flex-shrink-0">
-                <img src="https://i.ibb.co/rRqmTYkw/Picsart-25-07-20-09-20-58-897.jpg" 
-                     alt="Anand Parmar's profile picture" 
-                     class="rounded-full w-full h-full object-cover border-4 border-indigo-500 shadow-lg">
-            </div>
-            <!-- Profile Info -->
-            <div>
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Anand Parmar</h1>
-                <p class="text-xl text-indigo-600 font-semibold mt-2">Graphic Designer & Stock Market Enthusiast</p>
-                <div class="mt-6 flex justify-center md:justify-start flex-wrap gap-4">
-                    <a href="mailto:ap9023833488@gmail.com" class="flex items-center text-gray-600 hover:text-indigo-600 transition-colors">
-                        <i data-lucide="mail" class="icon-style"></i>
-                        <span>ap9023833488@gmail.com</span>
-                    </a>
-                    <a href="tel:+919023633488" class="flex items-center text-gray-600 hover:text-indigo-600 transition-colors">
-                        <i data-lucide="phone" class="icon-style"></i>
-                        <span>+91 9023633488</span>
-                    </a>
-                </div>
-                 <div class="mt-4 flex items-center justify-center md:justify-start text-gray-600">
-                    <i data-lucide="map-pin" class="icon-style"></i>
-                    <span>Banaskantha, Gujarat, India</span>
-                </div>
-            </div>
+    <div class="container mx-auto max-w-2xl p-4 sm:p-6 md:p-8">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 mb-2">Anand's Ultimate Daily Routine</h1>
+            <p id="current-time" class="text-lg text-gray-400"></p>
         </header>
 
-        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Left Column -->
-            <div class="lg:col-span-2 space-y-8">
-                <!-- About Me Section -->
-                <section class="card p-8">
-                    <h2 class="text-2xl font-bold mb-4 flex items-center text-gray-900">
-                        <i data-lucide="user-round" class="icon-style"></i>
-                        About Me
-                    </h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        I am a creative individual with a keen interest in graphic design and the stock market. I enjoy creating logos, banners, and posters. I am passionate about learning new things and continuously strive to improve my skills.
-                    </p>
-                </section>
+        <!-- Routine Schedule -->
+        <div id="routine-schedule" class="space-y-4">
+            <!-- Schedule items will be injected here by JavaScript -->
+        </div>
 
-                <!-- Skills Section -->
-                <section class="card p-8">
-                    <h2 class="text-2xl font-bold mb-6 flex items-center text-gray-900">
-                        <i data-lucide="sparkles" class="icon-style"></i>
-                        Skills
-                    </h2>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-indigo-100 text-indigo-800 text-md font-semibold px-4 py-2 rounded-full">Logo, Banner & Poster Design</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-md font-semibold px-4 py-2 rounded-full">Canva & Mobile Design Tools</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-md font-semibold px-4 py-2 rounded-full">MS Office (Word, Excel, PowerPoint)</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-md font-semibold px-4 py-2 rounded-full">Stock Market Understanding</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-md font-semibold px-4 py-2 rounded-full">Tally with GST</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-md font-semibold px-4 py-2 rounded-full">Course on Computer Concepts (CCC)</span>
-                    </div>
-                </section>
+        <!-- Key Points -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold text-center mb-6 text-indigo-400">📌 Key Points</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="key-point-card rounded-2xl p-6">
+                    <h3 class="font-semibold text-lg mb-2">🚌 Bus Journey Focus</h3>
+                    <p class="text-gray-300 text-sm">During your commute (11:00–11:30 & 4:10–5:30), use your phone only for quick market headlines or voice-note revision. No reels or games.</p>
+                </div>
+                <div class="key-point-card rounded-2xl p-6">
+                    <h3 class="font-semibold text-lg mb-2">🔍 Mandatory Review</h3>
+                    <p class="text-gray-300 text-sm">From 12:20–2:00 PM, you must revise what you learned in the morning. Dedicate 30-40 mins to note revision and 10-20 mins to flashcards.</p>
+                </div>
+                 <div class="key-point-card rounded-2xl p-6 md:col-span-2">
+                    <h3 class="font-semibold text-lg mb-2">🛌 The 21-Day Challenge</h3>
+                    <p class="text-gray-300 text-sm">Sleeping by 9:30 PM ensures energy and focus for the next day. Follow this routine without a break for 21 days, and you will see a significant difference.</p>
+                </div>
             </div>
-
-            <!-- Right Column -->
-            <div class="space-y-8">
-                <!-- Education Section -->
-                <section class="card p-8">
-                    <h2 class="text-2xl font-bold mb-4 flex items-center text-gray-900">
-                        <i data-lucide="graduation-cap" class="icon-style"></i>
-                        Education
-                    </h2>
-                    <div>
-                        <h3 class="font-semibold text-lg">High School (Class 10)</h3>
-                        <p class="text-gray-600">Completed in 2020</p>
-                    </div>
-                    <div class="mt-4">
-                        <h3 class="font-semibold text-lg">Computer Course (Ongoing)</h3>
-                        <p class="text-gray-600">Tally with GST, CCC</p>
-                    </div>
-                </section>
-
-                <!-- Languages Section -->
-                <section class="card p-8">
-                    <h2 class="text-2xl font-bold mb-4 flex items-center text-gray-900">
-                        <i data-lucide="languages" class="icon-style"></i>
-                        Languages
-                    </h2>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><span class="font-semibold">Gujarati:</span> Native</li>
-                        <li><span class="font-semibold">Hindi:</span> Fluent</li>
-                        <li><span class="font-semibold">English:</span> Basic (Learning)</li>
-                    </ul>
-                </section>
-                
-                <!-- Hobbies Section -->
-                <section class="card p-8">
-                    <h2 class="text-2xl font-bold mb-4 flex items-center text-gray-900">
-                        <i data-lucide="gamepad-2" class="icon-style"></i>
-                        Hobbies
-                    </h2>
-                    <ul class="space-y-2 text-gray-700">
-                        <li>Reading</li>
-                        <li>Travelling</li>
-                    </ul>
-                </section>
-            </div>
-        </main>
+        </div>
 
         <!-- Footer -->
-        <footer class="text-center mt-12 py-4">
-            <p class="text-gray-500">Designed by Anand Parmar &copy; 2025</p>
+        <footer class="text-center mt-12 text-gray-500">
+            <p>"The secret of your future is hidden in your daily routine."</p>
         </footer>
 
     </div>
 
-    <!-- Script to initialize Lucide icons -->
     <script>
-        lucide.createIcons();
+        // --- DATA ---
+        const routineData = [
+            { start: "04:30", end: "05:40", emoji: "🏋️‍♂️", title: "Workout", desc: "Dumbbells + Bodyweight" },
+            { start: "05:40", end: "06:10", emoji: "🧘", title: "Meditation + Deep Breathing", desc: "Mindful start to the day" },
+            { start: "06:10", end: "06:30", emoji: "🚿", title: "Cool Down & Freshen Up", desc: "Shower and prepare for the day" },
+            { start: "06:30", end: "07:00", emoji: "🥣", title: "Healthy Breakfast", desc: "Badam, kishmish, ghee mix" },
+            { start: "07:00", end: "09:00", emoji: "📚", title: "Stock Market Learning", desc: "Theory + YouTube + Notes" },
+            { start: "09:00", end: "10:45", emoji: "💻", title: "Side Hustle / Freelance", desc: "Practice / Design Work" },
+            { start: "10:45", end: "11:00", emoji: "🏃‍♂️", title: "Leave for Bus Stand", desc: "Time to head out" },
+            { start: "11:00", end: "11:30", emoji: "🚌", title: "Bus Journey", desc: "Phones for market news update only" },
+            { start: "11:30", end: "12:20", emoji: "🚶‍♂️", title: "Tharad Arrival", desc: "Light snack + Short walk" },
+            { start: "12:20", end: "14:00", emoji: "🔍", title: "Lunch & Market Review", desc: "Revise morning notes & flashcards" },
+            { start: "14:00", end: "16:00", emoji: "💻", title: "Computer Course", desc: "Onsite learning" },
+            { start: "16:10", end: "17:30", emoji: "🚌", title: "Bus Journey Home", desc: "Time to return" },
+            { start: "17:30", end: "18:00", emoji: "🚿", title: "Freshen Up & Snack", desc: "Relax and recharge" },
+            { start: "18:00", end: "19:00", emoji: "📈", title: "Demo Chart Practice", desc: "Paper Trading on TradingView" },
+            { start: "19:00", end: "20:00", emoji: "🍽️", title: "Dinner & Family Time", desc: "Connect with loved ones" },
+            { start: "20:00", end: "20:45", emoji: "📝", title: "Recap & Plan", desc: "Journal daily progress & plan for tomorrow" },
+            { start: "20:45", end: "21:10", emoji: "📺", title: "Market Psychology", desc: "10-15 min video + Relax" },
+            { start: "21:10", end: "21:30", emoji: "🧘", title: "Night Meditation", desc: "Light stretching and winding down" },
+            { start: "21:30", end: "04:30", emoji: "🛌", title: "Sleep", desc: "7 hours of rest" }
+        ];
+
+        // --- FUNCTIONS ---
+
+        // Function to create and append a single routine item to the schedule
+        function createRoutineItem(item) {
+            const scheduleContainer = document.getElementById('routine-schedule');
+            const itemDiv = document.createElement('div');
+            itemDiv.id = `item-${item.start.replace(':', '')}`;
+            itemDiv.className = 'routine-item flex items-center bg-gray-800 rounded-2xl p-4 transition-all duration-300 ease-in-out shadow-lg';
+            
+            itemDiv.innerHTML = `
+                <div class="text-4xl mr-4">${item.emoji}</div>
+                <div class="flex-grow">
+                    <p class="activity-title font-semibold text-gray-100">${item.title}</p>
+                    <p class="activity-desc text-sm text-gray-400">${item.desc}</p>
+                </div>
+                <div class="time text-right font-semibold text-indigo-400">
+                    <p>${item.start} - ${item.end}</p>
+                </div>
+            `;
+            scheduleContainer.appendChild(itemDiv);
+        }
+
+        // Function to update the current time display
+        function updateClock() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById('current-time').textContent = now.toLocaleDateString('en-US', options);
+        }
+
+        // Function to highlight the current activity
+        function highlightCurrentActivity() {
+            const now = new Date();
+            const currentTime = now.getHours() * 100 + now.getMinutes();
+
+            // Remove 'current' class from all items first
+            document.querySelectorAll('.routine-item').forEach(item => {
+                item.classList.remove('current');
+            });
+
+            let currentTask = null;
+
+            for (const item of routineData) {
+                const startTime = parseInt(item.start.replace(':', ''));
+                const endTime = parseInt(item.end.replace(':', ''));
+
+                // Handle overnight activities (like sleep)
+                if (startTime > endTime) { 
+                    if (currentTime >= startTime || currentTime < endTime) {
+                        currentTask = item;
+                        break;
+                    }
+                } else {
+                    if (currentTime >= startTime && currentTime < endTime) {
+                        currentTask = item;
+                        break;
+                    }
+                }
+            }
+            
+            if (currentTask) {
+                const currentItemId = `item-${currentTask.start.replace(':', '')}`;
+                const currentItemElement = document.getElementById(currentItemId);
+                if (currentItemElement) {
+                    currentItemElement.classList.add('current');
+                    // Optional: scroll the current item into view
+                    // currentItemElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        }
+
+        // --- INITIALIZATION ---
+        
+        // Populate the schedule on page load
+        routineData.forEach(createRoutineItem);
+        
+        // Initial calls to set everything up
+        updateClock();
+        highlightCurrentActivity();
+
+        // Update the clock every second and the highlight every minute
+        setInterval(updateClock, 1000);
+        setInterval(highlightCurrentActivity, 60000); // 60 seconds
     </script>
 </body>
 </html>
-
