@@ -3,263 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6-Day Aesthetic + Strength Workout Plan</title>
+    <title>6-Day Workout Plan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Style for active tab */
-        .tab-active {
-            border-bottom-width: 4px;
-            font-weight: 600;
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                -webkit-print-color-adjust: exact; /* Chrome, Safari */
+                color-adjust: exact; /* Firefox */
+            }
+            .page-break {
+                page-break-before: always;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white p-4 sm:p-6 md:p-8">
+<body class="bg-gray-100 p-4 sm:p-6 md:p-8">
 
-    <div class="max-w-4xl mx-auto">
-        <header class="text-center mb-8">
-            <h1 class="text-3xl sm:text-4xl font-bold text-white">6-Day Full Body Plan</h1>
-            <p class="text-gray-400 mt-2">Aesthetic + Strength (No Equipment / Dumbbell Friendly)</p>
-        </header>
+    <div class="max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+        
+        <div class="flex justify-between items-center mb-6 no-print">
+            <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">6-Day Workout Plan</h1>
+            <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors">
+                Print / Save as PDF
+            </button>
+        </div>
+        <p class="text-center text-gray-600 mb-8 print-only hidden">6-Day Full Body Aesthetic + Strength Plan</p>
 
-        <!-- Tab Navigation -->
-        <div class="mb-6 overflow-x-auto pb-2">
-            <nav class="flex border-b border-gray-700 -mb-px" id="tabs">
-                <button data-day="1" class="tab text-sm sm:text-base whitespace-nowrap py-4 px-3 sm:px-6 border-red-500 text-red-400 tab-active">Day 1</button>
-                <button data-day="2" class="tab text-sm sm:text-base whitespace-nowrap py-4 px-3 sm:px-6 border-blue-500 text-blue-400">Day 2</button>
-                <button data-day="3" class="tab text-sm sm:text-base whitespace-nowrap py-4 px-3 sm:px-6 border-yellow-500 text-yellow-400">Day 3</button>
-                <button data-day="4" class="tab text-sm sm:text-base whitespace-nowrap py-4 px-3 sm:px-6 border-green-500 text-green-400">Day 4</button>
-                <button data-day="5" class="tab text-sm sm:text-base whitespace-nowrap py-4 px-3 sm:px-6 border-blue-500 text-blue-400">Day 5</button>
-                <button data-day="6" class="tab text-sm sm:text-base whitespace-nowrap py-4 px-3 sm:px-6 border-red-500 text-red-400">Day 6</button>
-            </nav>
+
+        <!-- Day 1 -->
+        <div class="mb-8">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 bg-red-100 p-3 rounded-lg">🔴 Day 1 – Chest + Triceps + Serratus + Forearms <span class="font-normal text-base text-gray-600">(Push Day + Grip Focus)</span></h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead class="bg-blue-200">
+                        <tr>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700 w-16">#</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Exercise</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Sets x Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <tr class="border-b"><td class="py-3 px-4">1</td><td class="py-3 px-4">Push-ups</td><td class="py-3 px-4">4 x 12</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">2</td><td class="py-3 px-4">Dumbbell Floor Press</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">3</td><td class="py-3 px-4">Incline Push-ups (feet up)</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">4</td><td class="py-3 px-4">Dumbbell Chest Fly (floor)</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">5</td><td class="py-3 px-4">Triceps Dips (chair)</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">6</td><td class="py-3 px-4">Overhead Dumbbell Triceps Extension</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">7</td><td class="py-3 px-4">Close-grip Push-ups</td><td class="py-3 px-4">3 x 8</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">8</td><td class="py-3 px-4">Dumbbell Pullover (targets chest + serratus)</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">9</td><td class="py-3 px-4">Wrist Curls (forearms)</td><td class="py-3 px-4">3 x 15</td></tr>
+                        <tr class="bg-gray-50"><td class="py-3 px-4">10</td><td class="py-3 px-4">Reverse Wrist Curls</td><td class="py-3 px-4">3 x 15</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <!-- Workout Content -->
-        <div id="workout-content">
-            <!-- Day 1: Chest + Triceps + Serratus + Forearms -->
-            <div data-content="1" class="workout-day">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-red-500">
-                    <h2 class="text-2xl font-bold text-white mb-1">🔴 Day 1 – Chest + Triceps + Serratus + Forearms</h2>
-                    <p class="text-red-400 font-medium mb-6">Push Day + Grip Focus</p>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>1. Push-ups</span><span class="font-semibold text-gray-300">4x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>2. Dumbbell Floor Press</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>3. Incline Push-ups (feet up)</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>4. Dumbbell Chest Fly (floor)</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>5. Triceps Dips (chair)</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>6. Overhead Dumbbell Triceps Extension</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>7. Close-grip Push-ups</span><span class="font-semibold text-gray-300">3x8</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>8. Dumbbell Pullover (targets chest + serratus)</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>9. Wrist Curls (forearms)</span><span class="font-semibold text-gray-300">3x15</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>10. Reverse Wrist Curls</span><span class="font-semibold text-gray-300">3x15</span></div>
-                    </div>
-                </div>
+        <!-- Day 2 -->
+        <div class="mb-8">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 bg-blue-100 p-3 rounded-lg">🔵 Day 2 – Back + Biceps + Abs <span class="font-normal text-base text-gray-600">(Pull + Core)</span></h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead class="bg-blue-200">
+                        <tr>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700 w-16">#</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Exercise</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Sets x Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <tr class="border-b"><td class="py-3 px-4">1</td><td class="py-3 px-4">Dumbbell Row (each hand)</td><td class="py-3 px-4">4 x 10</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">2</td><td class="py-3 px-4">Superman Hold</td><td class="py-3 px-4">3 x 30 sec</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">3</td><td class="py-3 px-4">One-arm Dumbbell Deadlift</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">4</td><td class="py-3 px-4">Dumbbell Curl</td><td class="py-3 px-4">4 x 10</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">5</td><td class="py-3 px-4">Hammer Curl</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">6</td><td class="py-3 px-4">Zottman Curl</td><td class="py-3 px-4">3 x 8</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">7</td><td class="py-3 px-4">Plank</td><td class="py-3 px-4">3 x 45 sec</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">8</td><td class="py-3 px-4">Russian Twist</td><td class="py-3 px-4">3 x 30</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">9</td><td class="py-3 px-4">Leg Raises</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="bg-gray-50"><td class="py-3 px-4">10</td><td class="py-3 px-4">Forearm Plank Reach</td><td class="py-3 px-4">3 x 10</td></tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+        
+        <div class="page-break"></div>
 
-            <!-- Day 2: Back + Biceps + Abs -->
-            <div data-content="2" class="workout-day hidden">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
-                    <h2 class="text-2xl font-bold text-white mb-1">🔵 Day 2 – Back + Biceps + Abs</h2>
-                    <p class="text-blue-400 font-medium mb-6">Pull + Core</p>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>1. Dumbbell Row (each hand)</span><span class="font-semibold text-gray-300">4x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>2. Superman Hold</span><span class="font-semibold text-gray-300">3x30 sec</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>3. One-arm Dumbbell Deadlift</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>4. Dumbbell Curl</span><span class="font-semibold text-gray-300">4x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>5. Hammer Curl</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>6. Zottman Curl</span><span class="font-semibold text-gray-300">3x8</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>7. Plank</span><span class="font-semibold text-gray-300">3x45 sec</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>8. Russian Twist</span><span class="font-semibold text-gray-300">3x30 (15 each side)</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>9. Leg Raises</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>10. Forearm Plank Reach</span><span class="font-semibold text-gray-300">3x10</span></div>
-                    </div>
-                </div>
+        <!-- Day 3 -->
+        <div class="mb-8">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 bg-yellow-100 p-3 rounded-lg">🟡 Day 3 – Shoulders + Traps + Neck <span class="font-normal text-base text-gray-600">(Upper Support)</span></h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead class="bg-blue-200">
+                        <tr>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700 w-16">#</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Exercise</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Sets x Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <tr class="border-b"><td class="py-3 px-4">1</td><td class="py-3 px-4">Dumbbell Overhead Press</td><td class="py-3 px-4">4 x 10</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">2</td><td class="py-3 px-4">Dumbbell Lateral Raises</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">3</td><td class="py-3 px-4">Dumbbell Front Raises</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">4</td><td class="py-3 px-4">Dumbbell Shrugs (traps)</td><td class="py-3 px-4">4 x 15</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">5</td><td class="py-3 px-4">Dumbbell Upright Row</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">6</td><td class="py-3 px-4">Plate/Book Neck Curl (front)</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">7</td><td class="py-3 px-4">Towel Neck Extension (back)</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">8</td><td class="py-3 px-4">Isometric Neck Hold (side)</td><td class="py-3 px-4">3 x 30 sec</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">9</td><td class="py-3 px-4">Pike Push-up</td><td class="py-3 px-4">3 x 8</td></tr>
+                        <tr class="bg-gray-50"><td class="py-3 px-4">10</td><td class="py-3 px-4">Dumbbell Arnold Press</td><td class="py-3 px-4">3 x 10</td></tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
-            <!-- Day 3: Shoulders + Traps + Neck -->
-            <div data-content="3" class="workout-day hidden">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-yellow-500">
-                    <h2 class="text-2xl font-bold text-white mb-1">🟡 Day 3 – Shoulders + Traps + Neck</h2>
-                    <p class="text-yellow-400 font-medium mb-6">Upper support + Neck development</p>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>1. Dumbbell Overhead Press</span><span class="font-semibold text-gray-300">4x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>2. Dumbbell Lateral Raises</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>3. Dumbbell Front Raises</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>4. Dumbbell Shrugs (traps)</span><span class="font-semibold text-gray-300">4x15</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>5. Dumbbell Upright Row</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>6. Plate/Book Neck Curl (front)</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>7. Towel Neck Extension (back)</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>8. Isometric Neck Hold (side)</span><span class="font-semibold text-gray-300">3x30 sec</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>9. Pike Push-up (shoulder press bodyweight)</span><span class="font-semibold text-gray-300">3x8</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>10. Dumbbell Arnold Press</span><span class="font-semibold text-gray-300">3x10</span></div>
-                    </div>
-                </div>
+        <!-- Day 4 -->
+        <div class="mb-8">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 bg-green-100 p-3 rounded-lg">🟢 Day 4 – Legs + Core <span class="font-normal text-base text-gray-600">(Lower Body Strength)</span></h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead class="bg-blue-200">
+                        <tr>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700 w-16">#</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Exercise</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Sets x Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <tr class="border-b"><td class="py-3 px-4">1</td><td class="py-3 px-4">Bodyweight Squat</td><td class="py-3 px-4">4 x 15</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">2</td><td class="py-3 px-4">Dumbbell Goblet Squat</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">3</td><td class="py-3 px-4">Forward Lunges</td><td class="py-3 px-4">3 x 10 each</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">4</td><td class="py-3 px-4">Calf Raises</td><td class="py-3 px-4">4 x 20</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">5</td><td class="py-3 px-4">Glute Bridge</td><td class="py-3 px-4">3 x 15</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">6</td><td class="py-3 px-4">Dumbbell Deadlift</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">7</td><td class="py-3 px-4">Wall Sit</td><td class="py-3 px-4">3 x 45 sec</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">8</td><td class="py-3 px-4">Reverse Crunch</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">9</td><td class="py-3 px-4">Bicycle Crunch</td><td class="py-3 px-4">3 x 30</td></tr>
+                        <tr class="bg-gray-50"><td class="py-3 px-4">10</td><td class="py-3 px-4">Plank to Push-up</td><td class="py-3 px-4">3 x 10</td></tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+        
+        <div class="page-break"></div>
 
-            <!-- Day 4: Legs + Core -->
-            <div data-content="4" class="workout-day hidden">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-green-500">
-                    <h2 class="text-2xl font-bold text-white mb-1">🟢 Day 4 – Legs + Core</h2>
-                    <p class="text-green-400 font-medium mb-6">Lower Body Strength + Abs</p>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>1. Bodyweight Squat</span><span class="font-semibold text-gray-300">4x15</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>2. Dumbbell Goblet Squat</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>3. Forward Lunges</span><span class="font-semibold text-gray-300">3x10 each</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>4. Calf Raises</span><span class="font-semibold text-gray-300">4x20</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>5. Glute Bridge</span><span class="font-semibold text-gray-300">3x15</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>6. Dumbbell Deadlift</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>7. Wall Sit</span><span class="font-semibold text-gray-300">3x45 sec</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>8. Reverse Crunch</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>9. Bicycle Crunch</span><span class="font-semibold text-gray-300">3x30</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>10. Plank to Push-up</span><span class="font-semibold text-gray-300">3x10</span></div>
-                    </div>
-                </div>
+        <!-- Day 5 -->
+        <div class="mb-8">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 bg-blue-100 p-3 rounded-lg">🔵 Day 5 – Upper Retouch <span class="font-normal text-base text-gray-600">(Pump Day)</span></h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead class="bg-blue-200">
+                        <tr>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700 w-16">#</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Exercise</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Sets x Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <tr class="border-b"><td class="py-3 px-4">1</td><td class="py-3 px-4">Push-up to Dumbbell Curl</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">2</td><td class="py-3 px-4">Incline Push-up</td><td class="py-3 px-4">3 x 15</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">3</td><td class="py-3 px-4">Chest Fly (slow negative)</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">4</td><td class="py-3 px-4">Concentration Curl</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">5</td><td class="py-3 px-4">Cross-body Dumbbell Curl</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">6</td><td class="py-3 px-4">Dumbbell Pullover</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">7</td><td class="py-3 px-4">Reverse Curl</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">8</td><td class="py-3 px-4">Hanging Leg Raise or Lying Alt Leg Raise</td><td class="py-3 px-4">3 x 15</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">9</td><td class="py-3 px-4">Dumbbell Side Bend</td><td class="py-3 px-4">3 x 12 each</td></tr>
+                        <tr class="bg-gray-50"><td class="py-3 px-4">10</td><td class="py-3 px-4">V-Ups</td><td class="py-3 px-4">3 x 15</td></tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
-            <!-- Day 5: Upper Retouch -->
-            <div data-content="5" class="workout-day hidden">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
-                    <h2 class="text-2xl font-bold text-white mb-1">🔵 Day 5 – Upper Retouch (Chest + Biceps + Abs)</h2>
-                    <p class="text-blue-400 font-medium mb-6">Pump Day</p>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>1. Push-up to Dumbbell Curl</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>2. Incline Push-up</span><span class="font-semibold text-gray-300">3x15</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>3. Chest Fly (slow negative)</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>4. Concentration Curl</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>5. Cross-body Dumbbell Curl</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>6. Dumbbell Pullover</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>7. Reverse Curl</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>8. Hanging Leg Raise or Lying Alt Leg Raise</span><span class="font-semibold text-gray-300">3x15</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>9. Dumbbell Side Bend</span><span class="font-semibold text-gray-300">3x12 each</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>10. V-Ups</span><span class="font-semibold text-gray-300">3x15</span></div>
-                    </div>
-                </div>
+        <!-- Day 6 -->
+        <div class="mb-8">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 bg-red-100 p-3 rounded-lg">🔴 Day 6 – Back + Traps + Forearms <span class="font-normal text-base text-gray-600">(Pull Strength + Grip)</span></h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead class="bg-blue-200">
+                        <tr>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700 w-16">#</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Exercise</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Sets x Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <tr class="border-b"><td class="py-3 px-4">1</td><td class="py-3 px-4">Dumbbell Row</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">2</td><td class="py-3 px-4">Reverse Fly</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">3</td><td class="py-3 px-4">Shrugs</td><td class="py-3 px-4">4 x 15</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">4</td><td class="py-3 px-4">Deadlift (dumbbell)</td><td class="py-3 px-4">3 x 10</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">5</td><td class="py-3 px-4">Towel Rows (if no bar)</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">6</td><td class="py-3 px-4">Hammer Curl</td><td class="py-3 px-4">3 x 12</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">7</td><td class="py-3 px-4">Farmer’s Carry (walk with dumbbell)</td><td class="py-3 px-4">3 x 30 sec</td></tr>
+                        <tr class="border-b bg-gray-50"><td class="py-3 px-4">8</td><td class="py-3 px-4">Plate Pinch Hold or Book Hold</td><td class="py-3 px-4">3 x 30 sec</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4">9</td><td class="py-3 px-4">Wrist Curls</td><td class="py-3 px-4">3 x 15</td></tr>
+                        <tr class="bg-gray-50"><td class="py-3 px-4">10</td><td class="py-3 px-4">Reverse Wrist Curl</td><td class="py-3 px-4">3 x 15</td></tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
-            <!-- Day 6: Back + Traps + Forearms -->
-            <div data-content="6" class="workout-day hidden">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-red-500">
-                    <h2 class="text-2xl font-bold text-white mb-1">🔴 Day 6 – Back + Traps + Forearms</h2>
-                    <p class="text-red-400 font-medium mb-6">Pull Strength + Grip</p>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>1. Dumbbell Row</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>2. Reverse Fly</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>3. Shrugs</span><span class="font-semibold text-gray-300">4x15</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>4. Deadlift (dumbbell)</span><span class="font-semibold text-gray-300">3x10</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>5. Towel Rows (if no bar)</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>6. Hammer Curl</span><span class="font-semibold text-gray-300">3x12</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>7. Farmer’s Carry (walk with dumbbell)</span><span class="font-semibold text-gray-300">3x30 sec</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>8. Plate Pinch Hold or Book Hold</span><span class="font-semibold text-gray-300">3x30 sec</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>9. Wrist Curls</span><span class="font-semibold text-gray-300">3x15</span></div>
-                        <div class="flex justify-between items-center bg-gray-700 p-4 rounded-md"><span>10. Reverse Wrist Curl</span><span class="font-semibold text-gray-300">3x15</span></div>
-                    </div>
-                </div>
-            </div>
+        <!-- Notes -->
+        <div class="mt-10 pt-6 border-t border-gray-200">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">☑️ Notes:</h3>
+            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                <li><span class="font-semibold">Rest between sets:</span> 30-60 seconds</li>
+                <li><span class="font-semibold">Warm-up:</span> 5-min jog + shoulder rolls + leg swings</li>
+                <li><span class="font-semibold">Cool-down:</span> Light stretching (5-10 minutes)</li>
+                <li><span class="font-semibold text-green-600">Sunday:</span> Rest day or a light walk</li>
+            </ul>
         </div>
     </div>
 
-    <script>
-        // Get all tab buttons and content sections
-        const tabs = document.querySelectorAll('.tab');
-        const contents = document.querySelectorAll('.workout-day');
-
-        // Add click event listener to the tab container
-        document.getElementById('tabs').addEventListener('click', (event) => {
-            // Check if a tab button was clicked
-            if (event.target.classList.contains('tab')) {
-                const day = event.target.dataset.day;
-
-                // Remove active class from all tabs
-                tabs.forEach(tab => {
-                    tab.classList.remove('tab-active');
-                });
-
-                // Add active class to the clicked tab
-                event.target.classList.add('tab-active');
-
-                // Hide all content sections
-                contents.forEach(content => {
-                    content.classList.add('hidden');
-                });
-
-                // Show the content section corresponding to the clicked tab
-                const activeContent = document.querySelector(`[data-content="${day}"]`);
-                if (activeContent) {
-                    activeContent.classList.remove('hidden');
-                }
-            }
-        });
-    </script>
-</body>
-                                                                                                      </html>                    <p>${item.start} - ${item.end}</p>
-                </div>
-            `;
-            scheduleContainer.appendChild(itemDiv);
-        }
-
-        // Function to update the current time display
-        function updateClock() {
-            const now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            document.getElementById('current-time').textContent = now.toLocaleDateString('en-US', options);
-        }
-
-        // Function to highlight the current activity
-        function highlightCurrentActivity() {
-            const now = new Date();
-            const currentTime = now.getHours() * 100 + now.getMinutes();
-
-            // Remove 'current' class from all items first
-            document.querySelectorAll('.routine-item').forEach(item => {
-                item.classList.remove('current');
-            });
-
-            let currentTask = null;
-
-            for (const item of routineData) {
-                const startTime = parseInt(item.start.replace(':', ''));
-                const endTime = parseInt(item.end.replace(':', ''));
-
-                // Handle overnight activities (like sleep)
-                if (startTime > endTime) { 
-                    if (currentTime >= startTime || currentTime < endTime) {
-                        currentTask = item;
-                        break;
-                    }
-                } else {
-                    if (currentTime >= startTime && currentTime < endTime) {
-                        currentTask = item;
-                        break;
-                    }
-                }
-            }
-            
-            if (currentTask) {
-                const currentItemId = `item-${currentTask.start.replace(':', '')}`;
-                const currentItemElement = document.getElementById(currentItemId);
-                if (currentItemElement) {
-                    currentItemElement.classList.add('current');
-                    // Optional: scroll the current item into view
-                    // currentItemElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }
-        }
-
-        // --- INITIALIZATION ---
-        
-        // Populate the schedule on page load
-        routineData.forEach(createRoutineItem);
-        
-        // Initial calls to set everything up
-        updateClock();
-        highlightCurrentActivity();
-
-        // Update the clock every second and the highlight every minute
-        setInterval(updateClock, 1000);
-        setInterval(highlightCurrentActivity, 60000); // 60 seconds
-    </script>
 </body>
 </html>
+
