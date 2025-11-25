@@ -3,270 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6-Day Home Workout Plan</title>
+    <title>World Clock - Live Country Times</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            background-color: #0f172a; /* Slate 900 */
+            color: #e2e8f0;
         }
-        .container {
-            max-width: 768px;
+
+        .clock-font {
+            font-family: 'JetBrains Mono', monospace;
         }
-        .card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+
+        /* Scrollbar customization */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .day-header-red {
-            background-color: #fecaca;
-            color: #b91c1c;
+        ::-webkit-scrollbar-track {
+            background: #1e293b; 
         }
-        .day-header-blue {
-            background-color: #bfdbfe;
-            color: #1e40af;
+        ::-webkit-scrollbar-thumb {
+            background: #475569; 
+            border-radius: 4px;
         }
-        .exercise-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b; 
         }
-        .exercise-table th, .exercise-table td {
-            padding: 12px;
-            border-bottom: 1px solid #e5e7eb;
-            text-align: left;
+
+        .card-gradient {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
         }
-        .exercise-table th {
-            font-weight: 600;
+        
+        .analog-clock {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #64748b;
+            position: relative;
         }
-        .exercise-table tr:last-child td {
-            border-bottom: none;
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            background-color: #94a3b8;
+            border-radius: 2px;
         }
-        .workout-notes li {
-            margin-bottom: 8px;
+        .hour-hand {
+            width: 2px;
+            height: 14px;
+            background-color: #e2e8f0;
         }
-        @media print {
-            .no-print {
-                display: none;
-            }
-            body {
-                background-color: #ffffff;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
+        .minute-hand {
+            width: 2px;
+            height: 18px;
+        }
+        .second-hand {
+            width: 1px;
+            height: 20px;
+            background-color: #ef4444;
+        }
+        .center-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
-<body class="bg-gray-100 p-4 sm:p-8">
+<body class="min-h-screen flex flex-col">
 
-    <div class="container mx-auto">
-        <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 text-center sm:text-left mb-2 sm:mb-0">6-Day Workout Plan</h1>
-            <button onclick="window.print()" class="no-print bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
-                Print as PDF
-            </button>
-        </div>
+    <!-- Header -->
+    <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-earth-americas text-3xl text-blue-500"></i>
+                <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
+                    World Time Live
+                </h1>
+            </div>
 
-        <div class="mb-6 card">
-            <div class="bg-gray-200 p-4 flex justify-between items-center text-sm font-semibold">
-                Workout Notes
+            <div class="relative w-full md:w-96 group">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fa-solid fa-search text-slate-400 group-focus-within:text-blue-400 transition-colors"></i>
+                </div>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="block w-full pl-10 pr-4 py-2 border border-slate-600 rounded-full leading-5 bg-slate-700 text-slate-100 placeholder-slate-400 focus:outline-none focus:bg-slate-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm transition-all duration-300" 
+                    placeholder="Search country or city..."
+                >
             </div>
-            <div class="p-4 text-gray-700">
-                <ul class="list-disc list-inside workout-notes">
-                    <li>Sets/Reps: 4 sets, 12–20 reps (agar easy lage to slow tempo + pause).</li>
-                    <li>Rest: 45–60 sec.</li>
-                    <li>Total Time: ~1 hour.</li>
-                    <li>Duration: 6 din har week repeat karne layak, 100% effective.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Day 1 -->
-        <div class="mb-6 card">
-            <div class="day-header-red p-4 flex justify-between items-center font-bold">
-                Day 1 – Chest + Triceps + Forearms
-            </div>
-            <div class="p-4">
-                <table class="exercise-table">
-                    <thead>
-                        <tr>
-                            <th class="w-1/12">#</th>
-                            <th class="w-7/12">Exercise</th>
-                            <th class="w-4/12">Sets x Reps</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Push-ups</td><td>4x20</td></tr>
-                        <tr><td>2</td><td>Incline Push-ups</td><td>4x15</td></tr>
-                        <tr><td>3</td><td>Diamond Push-ups</td><td>4x12</td></tr>
-                        <tr><td>4</td><td>Tricep Dips (chair)</td><td>4x15</td></tr>
-                        <tr><td>5</td><td>Plank to Push-up</td><td>3x12</td></tr>
-                        <tr><td>6</td><td>Wrist Curl (bottle/dumbbell)</td><td>4x20</td></tr>
-                        <tr><td>7</td><td>Reverse Wrist Curl</td><td>4x20</td></tr>
-                        <tr><td>8</td><td>Finger-tip Push-ups</td><td>3x10</td></tr>
-                    </tbody>
-                </table>
+            
+            <div class="flex gap-2">
+                 <button id="sortBtn" class="p-2 text-slate-400 hover:text-white transition-colors" title="Sort by Name">
+                    <i class="fa-solid fa-arrow-down-a-z"></i>
+                </button>
+                <div class="text-sm text-slate-400 flex flex-col items-end hidden md:flex">
+                    <span id="userLocalTime" class="font-bold text-slate-200">--:--</span>
+                    <span class="text-xs">Your Time</span>
+                </div>
             </div>
         </div>
+    </header>
 
-        <!-- Day 2 -->
-        <div class="mb-6 card">
-            <div class="day-header-blue p-4 flex justify-between items-center font-bold">
-                Day 2 – Back + Biceps + Forearms
-            </div>
-            <div class="p-4">
-                <table class="exercise-table">
-                    <thead>
-                        <tr>
-                            <th class="w-1/12">#</th>
-                            <th class="w-7/12">Exercise</th>
-                            <th class="w-4/12">Sets x Reps</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Inverted Rows (table/bed niche)</td><td>4x12</td></tr>
-                        <tr><td>2</td><td>Superman Hold</td><td>4x20 sec</td></tr>
-                        <tr><td>3</td><td>Doorway Rows (kapde se door grip)</td><td>4x12</td></tr>
-                        <tr><td>4</td><td>Bicep Curl (agar bottle/dumbbell ho)</td><td>4x15</td></tr>
-                        <tr><td>5</td><td>Hammer Curl (bottle/dumbbell)</td><td>4x15</td></tr>
-                        <tr><td>6</td><td>Farmer Walk (2 bottle/dumbbell leke walk)</td><td>3x30 sec</td></tr>
-                        <tr><td>7</td><td>Towel Grip Hang (darwaze/branch se latakna)</td><td>3 rounds, jitna ho sake</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
         
-        <!-- Day 3 -->
-        <div class="mb-6 card">
-            <div class="day-header-red p-4 flex justify-between items-center font-bold">
-                Day 3 – Legs + Abs (Obliques Included)
-            </div>
-            <div class="p-4">
-                <table class="exercise-table">
-                    <thead>
-                        <tr>
-                            <th class="w-1/12">#</th>
-                            <th class="w-7/12">Exercise</th>
-                            <th class="w-4/12">Sets x Reps</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Glute Bridge</td><td>4x15</td></tr>
-                        <tr><td>2</td><td>Calf Raise</td><td>4x20</td></tr>
-                        <tr><td>3</td><td>Side-Lying Leg Raise</td><td>3x15 each side</td></tr>
-                        <tr><td>4</td><td>Step-Up (chair/bench)</td><td>3x12 per leg</td></tr>
-                        <tr><td>5</td><td>Dumbbell Deadlift (light, slow)</td><td>3x15</td></tr>
-                        <tr><td>6</td><td>Abs (aapka workout)</td><td>(N/A)</td></tr>
-                        <tr><td>7</td><td>Side Plank Hip Lift (oblique)</td><td>3x15 each side</td></tr>
-                        <tr><td>8</td><td>Russian Twists</td><td>3x20</td></tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- Controls / Filters -->
+        <div class="flex flex-wrap gap-2 mb-6" id="regionFilters">
+            <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-blue-600 text-white shadow-lg shadow-blue-500/30 transition-transform hover:scale-105" data-filter="all">All</button>
+            <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-700 text-slate-300 hover:bg-slate-600 transition-colors" data-filter="Americas">Americas</button>
+            <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-700 text-slate-300 hover:bg-slate-600 transition-colors" data-filter="Europe">Europe</button>
+            <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-700 text-slate-300 hover:bg-slate-600 transition-colors" data-filter="Asia">Asia</button>
+            <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-700 text-slate-300 hover:bg-slate-600 transition-colors" data-filter="Africa">Africa</button>
+            <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-700 text-slate-300 hover:bg-slate-600 transition-colors" data-filter="Oceania">Oceania</button>
         </div>
 
-        <!-- Day 4 -->
-        <div class="mb-6 card">
-            <div class="day-header-blue p-4 flex justify-between items-center font-bold">
-                Day 4 – Shoulders + Core + Forearms
-            </div>
-            <div class="p-4">
-                <table class="exercise-table">
-                    <thead>
-                        <tr>
-                            <th class="w-1/12">#</th>
-                            <th class="w-7/12">Exercise</th>
-                            <th class="w-4/12">Sets x Reps</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Pike Push-ups</td><td>4x12</td></tr>
-                        <tr><td>2</td><td>Shoulder Taps</td><td>4x20</td></tr>
-                        <tr><td>3</td><td>Wall Handstand Hold</td><td>3 rounds jitna ho sake</td></tr>
-                        <tr><td>4</td><td>Lateral Arm Raises (bottle/dumbbell)</td><td>4x15</td></tr>
-                        <tr><td>5</td><td>Mountain Climbers</td><td>4x20</td></tr>
-                        <tr><td>6</td><td>Wrist Curl</td><td>4x20</td></tr>
-                        <tr><td>7</td><td>Reverse Wrist Curl</td><td>4x20</td></tr>
-                        <tr><td>8</td><td>Plate Pinch Hold (2 bottle/brick ko pinch)</td><td>3x30 sec</td></tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- Clocks Grid -->
+        <div id="clocksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Cards injected by JS -->
         </div>
 
-        <!-- Day 5 -->
-        <div class="mb-6 card">
-            <div class="day-header-red p-4 flex justify-between items-center font-bold">
-                Day 5 – Arms (Biceps + Triceps) + Forearms
-            </div>
-            <div class="p-4">
-                <table class="exercise-table">
-                    <thead>
-                        <tr>
-                            <th class="w-1/12">#</th>
-                            <th class="w-7/12">Exercise</th>
-                            <th class="w-4/12">Sets x Reps</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Close-grip Push-ups</td><td>4x15</td></tr>
-                        <tr><td>2</td><td>Chair Dips</td><td>4x15</td></tr>
-                        <tr><td>3</td><td>Concentration Curl (bottle/dumbbell)</td><td>4x15</td></tr>
-                        <tr><td>4</td><td>Overhead Tricep Extension (bottle/dumbbell)</td><td>4x12</td></tr>
-                        <tr><td>5</td><td>Zottman Curl (curl + reverse down)</td><td>4x15</td></tr>
-                        <tr><td>6</td><td>Farmer Walk</td><td>3x30 sec</td></tr>
-                        <tr><td>7</td><td>Finger-tip Push-ups</td><td>3x10</td></tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- No Results State -->
+        <div id="noResults" class="hidden flex flex-col items-center justify-center py-20 text-slate-500">
+            <i class="fa-regular fa-face-frown text-6xl mb-4"></i>
+            <p class="text-xl">No locations found matching your search.</p>
         </div>
 
-        <!-- Day 6 -->
-        <div class="mb-6 card">
-            <div class="day-header-blue p-4 flex justify-between items-center font-bold">
-                Day 6 – Full Body + Abs (Obliques)
-            </div>
-            <div class="p-4">
-                <table class="exercise-table">
-                    <thead>
-                        <tr>
-                            <th class="w-1/12">#</th>
-                            <th class="w-7/12">Exercise</th>
-                            <th class="w-4/12">Sets x Reps</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Burpees</td><td>4x12</td></tr>
-                        <tr><td>2</td><td>Jumping Jacks</td><td>4x30 sec</td></tr>
-                        <tr><td>3</td><td>Plank</td><td>3x1 min</td></tr>
-                        <tr><td>4</td><td>Abs (aapka workout)</td><td>(N/A)</td></tr>
-                        <tr><td>5</td><td>Side Plank Hip Lift</td><td>3x15 each side</td></tr>
-                        <tr><td>6</td><td>Hanging Knee Raise (agar bar mile)</td><td>3x12</td></tr>
-                        <tr><td>7</td><td>Mountain Climbers</td><td>4x20</td></tr>
-                    </tbody>
-                </table>
-            </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-6 mt-auto">
+        <div class="container mx-auto px-4 text-center text-slate-500 text-sm">
+            <p>Times are calculated based on your browser's IANA timezone database.</p>
+            <p class="mt-2">&copy; 2024 World Time Live</p>
         </div>
+    </footer>
 
-        <!-- Day 7 -->
-        <div class="mb-6 card">
-            <div class="day-header-red p-4 flex justify-between items-center font-bold">
-                Day 7 – Rest / Active Recovery
-            </div>
-            <div class="p-4 text-gray-700">
-                <p>Sirf stretching, walk/run, ya yoga.</p>
-            </div>
-        </div>
+    <!-- JavaScript -->
+    <script>
+        // --- Data: Curated List of Major Countries & Cities ---
+        // Using explicit IANA Timezones
+        const locations = [
+            // Americas
+            { country: "United States", city: "New York", zone: "America/New_York", region: "Americas", code: "US" },
+            { country: "United States", city: "Los Angeles", zone: "America/Los_Angeles", region: "Americas", code: "US" },
+            { country: "United States", city: "Chicago", zone: "America/Chicago", region: "Americas", code: "US" },
+            { country: "Canada", city: "Toronto", zone: "America/Toronto", region: "Americas", code: "CA" },
+            { country: "Canada", city: "Vancouver", zone: "America/Vancouver", region: "Americas", code: "CA" },
+            { country: "Brazil", city: "São Paulo", zone: "America/Sao_Paulo", region: "Americas", code: "BR" },
+            { country: "Argentina", city: "Buenos Aires", zone: "America/Argentina/Buenos_Aires", region: "Americas", code: "AR" },
+            { country: "Mexico", city: "Mexico City", zone: "America/Mexico_City", region: "Americas", code: "MX" },
+            { country: "Colombia", city: "Bogotá", zone: "America/Bogota", region: "Americas", code: "CO" },
+            { country: "Chile", city: "Santiago", zone: "America/Santiago", region: "Americas", code: "CL" },
+            { country: "Peru", city: "Lima", zone: "America/Lima", region: "Americas", code: "PE" },
 
-        <div class="text-center text-sm text-gray-500 mt-8 mb-4">
-            <p>⚡ Ye plan aapko strength + muscle size + forearm thickness + abs definition + aesthetics sab dega.</p>
-            <p>⚡ ~1 ghanta daily lagega. Forearms aur obliques dono par extra focus hai.</p>
-        </div>
-        
-    </div>
+            // Europe
+            { country: "United Kingdom", city: "London", zone: "Europe/London", region: "Europe", code: "GB" },
+            { country: "France", city: "Paris", zone: "Europe/Paris", region: "Europe", code: "FR" },
+            { country: "Germany", city: "Berlin", zone: "Europe/Berlin", region: "Europe", code: "DE" },
+            { country: "Spain", city: "Madrid", zone: "Europe/Madrid", region: "Europe", code: "ES" },
+            { country: "Italy", city: "Rome", zone: "Europe/Rome", region: "Europe", code: "IT" },
+            { country: "Russia", city: "Moscow", zone: "Europe/Moscow", region: "Europe", code: "RU" },
+            { country: "Netherlands", city: "Amsterdam", zone: "Europe/Amsterdam", region: "Europe", code: "NL" },
+            { country: "Sweden", city: "Stockholm", zone: "Europe/Stockholm", region: "Europe", code: "SE" },
+            { country: "Poland", city: "Warsaw", zone: "Europe/Warsaw", region: "Europe", code: "PL" },
+            { country: "Ukraine", city: "Kyiv", zone: "Europe/Kiev", region: "Europe", code: "UA" },
+            { country: "Turkey", city: "Istanbul", zone: "Europe/Istanbul", region: "Europe", code: "TR" },
+            { country: "Switzerland", city: "Zurich", zone: "Europe/Zurich", region: "Europe", code: "CH" },
 
-</body>
-</html>
+            // Asia
+            { country: "China", city: "Beijing", zone: "Asia/Shanghai", region: "Asia", code: "CN" },
+            { country: "Japan", city: "Tokyo", zone: "Asia/Tokyo", region: "Asia", code: "JP" },
+            { country: "India", city: "New Delhi", zone: "Asia/Kolkata", region: "Asia", code: "IN" },
+            { country: "South Korea", city: "Seoul", zone: "Asia/Seoul", region: "Asia", code: "KR" },
+            { country: "Singapore", city: "Singapore", zone: "Asia/Singapore", region: "Asia", code: "SG" },
+            { country: "UAE", city: "Dubai", zone: "Asia/Dubai", region: "Asia", code: "AE" },
+            { country: "Saudi Arabia", city: "Riyadh", zone: "Asia/Riyadh", region: "Asia", code: "SA" },
+            { country: "Thailand", city: "Bangkok", zone: "Asia/Bangkok", region: "Asia", code: "TH" },
+            { country: "Indonesia", city: "Jakarta", zone: "Asia/Jakarta", region: "Asia", code: "ID" },
+            { country: "Vietnam", city: "Ho Chi Minh", zone: "Asia/Ho_Chi_Minh", region: "Asia", code: "VN" },
+            { country: "Philippines", city: "Manila", zone: "Asia/Manila", region: "Asia", code: "PH" },
+            { country: "Pakistan", city: "Karachi", zone: "Asia/Karachi", region: "Asia", code: "PK" },
+            { country: "Israel", city: "Jerusalem", zone: "Asia/Jerusalem", region: "Asia", code: "IL" },
+            
+            // Oceania
+            { country: "Australia", city: "Sydney", zone: "Australia/Sydney", region: "Oceania", code: "AU" },
+            { country: "Australia", city: "Perth", zone: "Australia/Perth", region: "Oceania", code: "AU" },
+            { country: "New Zealand", city: "Auckland", zone: "Pacific/Auckland", region: "Oceania", code: "NZ" },
+            { country: "Fiji", city: "Suva", zone: "Pacific/Fiji", region: "Oceania", code: "FJ" },
 
+            // Africa
+            { country: "South Africa", city: "Johannesburg", zone: "Africa/Johannesburg", region: "Africa", code: "ZA" },
+            { country: "Egypt", city: "Cairo", zone: "Africa/Cairo", region: "Africa", code: "EG" },
+            { country: "Nigeria", city: "Lagos", zone: "Africa/Lagos", region: "Africa", code: "NG" },
+            { country: "Kenya", city: "Nairobi", zone: "Africa/Nairobi", region: "Africa", code: "KE" },
+            { country: "Morocco", city: "Casablanca", zone: "Africa/Casablanca", region: "Africa", code: "MA" },
+            { country: "Ghana", city: "Accra", zone: "Africa/Accra", region: "Africa", code: "GH" }
+        ];
+
+        // --- State Management ---
+        let currentFilter = 'all';
+        let searchQuery = '';
+        let isSortedAsc = true;
+        let displayedLocations = [...locations].sort((a, b) => a.country.localeCompare(b.country));
+
+        // --- DOM Elements ---
+        const grid = document.getElementById('clocksGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterButtons = document.querySelectorAll('#regionFilters button');
+        const noResults = document.getElementById('noResults');
+        const sortBtn = document.getElementById('sortBtn');
+        const localTimeDisplay = document.getElementById('userLocalTime');
+
+        // --- Helper: Get Flag Emoji (Optional fallback, not used primarily for design but good for utility) ---
+        // We will use FontAwesome icons based on region logic or generic logic for aesthetics
+        function getRegionIcon(region) {
+            switch(region) {
+                case 'Americas': return 'fa-earth-americas';
+                case 'Europe': return 'fa-earth-europe';
+                case 'Asia': return 'fa-earth-asia';
+                case 'Africa': return 'fa-earth-africa';
+                case 'Oceania': return 'fa-earth-oceania';
+                default: return 'fa-globe';
+            }
+        }
+
+        // --- Time Calculation ---
+        function getTimeData(zone) {
+            try {
+                const now = new Date();
+                
+                // Formatter for time
+                const timeFormatter = new Intl.DateTimeFormat('en-US', {
+                    timeZone: zone,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false // 24 hour format is easier for global comparison, but we can do 12h
+                });
+
+                // Formatter for Date
+                const dateFormatter = new Intl.DateTimeFormat('en-US', {
+                    timeZone: zone,
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
+                });
+
+                // Formatter for Offset (e.g., GMT-5)
+                const longFormatter = new Intl.DateTimeFormat('en-US', {
+                    timeZone: zone,
+                    timeZoneName: 'shortOffset'
+                });
+
+                const timeParts = timeFormatter.formatToParts(now);
+                const h = parseInt(timeParts.find(p => p.type === 'hour').value);
+                const m = parseInt(timeParts.find(p => p.type === 'minute').value);
+                const s = parseInt(timeParts.find(p => p.type === 'second').value);
+                
+                // Determine Day/Night for UI styling
+                const isDay = h >= 6 && h < 18;
+                
+                // Calculate analog rotations
+                const sDeg = ((s / 60) * 360);
+                const mDeg = ((m / 60) * 360) + ((s/60)*6);
+                const hDeg = ((h % 12) / 12 * 360) + ((m/60)*30);
+
+                const timeString = timeFormatter.format(now);
+                const dateString = dateFormatter.format(now);
+                
+                // Extract GMT offset
+                const offsetString = longFormatter.formatToParts(now).find(p => p.type === 'timeZoneName').value;
+
+                return { h, m, s, timeString, dateString, offsetString, isDay, sDeg, mDeg, hDeg };
+            } catch (e) {
+                console.error(`Error formatting time for ${zone}`, e);
+                return null;
+            }
+        }
+
+        // --- Rendering ---
+        function createCard(loc) {
+            const data = getTimeData(loc.zone);
+            if (!data) return '';
+
+            // Day/Night indicator color
+            const statusColor = data.isDay ? 'text-yellow-400' : 'text-indigo-400';
+            const statusIcon = data.isDay ? 'fa-sun' : 'fa-moon';
+            const cardBorder = data.isDay ? 'border-l-4 border-yellow-500' : 'border-l-4 border-indigo-500';
+
+            return `
+                <div class="card-gradient rounded-xl p-5 shadow-lg relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl border border-slate-700 ${cardBorder}">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h2 class="text-lg font-bold text-white leading-tight">${loc.country}</h2>
+                            <p class="text-sm text-blue-400 font-medium">${loc.city}</p>
+                        </div>
+                        <div class="analog-clock shadow-inner bg-slate-800">
+                            <div class="hand hour-hand" style="transform: rotate(${data.hDeg}deg)"></div>
+                            <div class="hand minute-hand" style="transform: rotate(${data.mDeg}deg)"></div>
+                            <div class="hand second-hand" style="transform: rotate(${data.sDeg}deg)"></div>
+                            <div class="center-dot"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div class="text-4xl font-bold text-white clock-font tracking-wider mb-1">
+                                ${data.timeString}
+                            </div>
+                            <div class="text-xs text-slate-400 font-medium uppercase tracking-wide flex items-center gap-2">
+                                <span>${data.dateString}</span>
+                                <span class="bg-slate-800 px-1.5 py-0.5 rounded text-[10px] text-slate-500 border border-slate-700">${data.offsetString}</span>
+                            </div>
+                        </div>
+                        <div class="text-2xl ${statusColor} opacity-80">
+                            <i class="fa-solid ${statusIcon}"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Background Watermark Icon -->
+                    <i class="fa-solid ${getRegionIcon(loc.region)} absolute -bottom-4 -right-4 text-8xl text-white opacity-[0.03] pointer-events-none"></i>
+                </div>
+            `;
+        }
+
+        function render() {
+            // Filter logic
+            const filtered = locations.filter(loc => {
+                const matchesSearch = loc.country.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      loc.city.toLowerCase().includes(searchQuery.toLowerCase());
+                const matchesRegion = currentFilter === 'all' || loc.region === currentFilter;
+                return matchesSearch && matchesRegion;
+            });
+
+            // Sorting logic
+            filtered.sort((a, b) => {
+                // If filtered by text, sometimes we want relevance, but here alphabetical is standard
+                // Toggle Sort
+                return isSortedAsc ? a.country.localeCompare(b.country) : b.country.localeCompare(a.country);
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            // Build HTML
+            // Note: Re-rendering full HTML every second can be heavy if the list is huge.
+            // However, for ~50 items, modern browsers handle it easily.
+            // For extreme optimization, we would update textContent of IDs, but string literal is cleaner for this scope.
+            grid.innerHTML = filtered.map(createCard).join('');
+        }
+
+        // --- Event Listeners ---
+
+        // Search
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            render(); // Immediate feedback on keyup (static)
+        });
+
+        // Filters
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state style
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-500/30');
+                    b.classList.add('bg-slate-700', 'text-slate-300');
+                });
+                b
